@@ -1,0 +1,108 @@
+<div id="page_content">
+    <div id="page_heading" data-uk-sticky="{ top: 48, media: 960 }">
+        <div class="heading_actions action-padding-top">
+            <!--<a href="#" data-uk-tooltip="{pos:'bottom'}" title="Print"><i class="md-icon material-icons">&#xE8AD;</i></a>
+            <div data-uk-dropdown="{mode:'click'}">
+                <i class="md-icon material-icons">&#xE5D4;</i>
+                <div class="uk-dropdown uk-dropdown-small">
+                    <ul class="uk-nav">
+                        <li><a class="disableMouse" href="javascript:void(0)">Import</a></li>
+                        <li><a class="disableMouse" href="javascript:void(0)">Export list</a></li>
+                    </ul>
+                </div>
+            </div>-->
+        </div>
+        <span class="route-header">
+            <a ui-sref="roles">{{titlePage.home | translate}}</a>
+            <span> / </span><a ui-sref="roles">{{titlePage.setting | translate}}</a>
+            <span> / </span><a ui-sref="users">{{titlePage.user_permision | translate}}</a>
+            <span> / {{pageTitle | translate}}</span>
+        </span>
+        </br>
+        <div class="uk-margin-small-top">
+            <a ui-sref="roles-create" class="md-btn md-btn-primary md-btn-small"><span class="uk-text-bold">{{button.create | translate}}</span></a>
+            <button id="deleteBtn" class="md-btn md-btn-small hideElement" ng-click="handleDeleteRows()"><span class="uk-text-bold">{{button.delete | translate}}</span></button>
+        </div>
+    </div>
+    <div id="page_content_inner">
+        <jhi-alert></jhi-alert>
+        <div class="md-card">
+            <div class="md-card-content">
+                <div class="uk-overflow-container uk-margin-bottom">
+                    <table class="table-max-len hoverTable uk-table uk-table-align-vertical uk-table-striped uk-table-nowrap tablesorter tablesorter-altair" id="table_role">
+                        <thead>
+                        <tr>
+                            <th data-name="Select" data-priority="5"><input type="checkbox" class="ts_checkbox_all"></th>
+                            <th class="pointerMouse boldHeader" ng-click="handleSort($event, 1, 'table_role')" data-priority="1">{{columnsName.Name|translate}}<i class="material-icons md-20 rightCell">{{TABLES['table_role'].param_sort_list[1]}}</i></th>
+                            <th class="pointerMouse boldHeader" ng-click="handleSort($event, 2, 'table_role')" data-priority="2">{{columnsName.Description|translate}}<i class="material-icons md-20 rightCell">{{TABLES['table_role'].param_sort_list[2]}}</i></th>
+                            <th class="pointerMouse boldHeader tablesorter-headerAsc" ng-click="handleSort($event, 3, 'table_role')" data-priority="3">{{columnsName.Created|translate}}<i class="material-icons md-20 rightCell">{{TABLES['table_role'].param_sort_list[3]}}</i></th>
+                            <th style="min-width: 120px" class="pointerMouse boldHeader" ng-click="handleSort($event, 4, 'table_role')" data-priority="4">{{columnsName.CreatedBy|translate}}<i class="material-icons md-20 rightCell">{{TABLES['table_role'].param_sort_list[4]}}</i></th>
+                            <th class="pointerMouse boldHeader" ng-click="handleSort($event, 5, 'table_role')" data-priority="5">{{columnsName.Updated|translate}}<i class="material-icons md-20 rightCell">{{TABLES['table_role'].param_sort_list[5]}}</i></th>
+                            <th style="min-width: 120px" class="pointerMouse boldHeader" ng-click="handleSort($event, 6, 'table_role')" data-priority="6">{{columnsName.UpdatedBy|translate}}<i class="material-icons md-20 rightCell">{{TABLES['table_role'].param_sort_list[6]}}</i></th>
+                        </tr>
+                        <tr>
+                            <td><!--<input class="filter-table-cell-small disableMouse" type="search" placeholder="" disabled data-column="0">--></td>
+                            <td><input class="filter-table-cell" ng-model="TABLES['table_role'].param_filter_list[1]" ng-change="handleFilter('table_role')" type="search" placeholder="" data-column="1"></td>
+                            <td><input class="filter-table-cell" ng-model="TABLES['table_role'].param_filter_list[2]" ng-change="handleFilter('table_role')" type="search" placeholder="" data-column="2"></td>
+                            <td>
+                                <!--<input class="filter-table-cell" type="search" placeholder="" data-column="3">-->
+                                <date-picker-filter date-start="DatetimeRange1.dateStart" date-end="DatetimeRange1.dateEnd"
+                                                        table="DatetimeRange1.Table"
+                                                        column="DatetimeRange1.Column"
+                                                        scope-controller="DatetimeRange1.Scope">
+                                </date-picker-filter>
+                            </td>
+                            <td><input class="filter-table-cell" ng-model="TABLES['table_role'].param_filter_list[4]" ng-change="handleFilter('table_role')" type="search" placeholder="" data-column="4"></td>
+                            <td>
+                                <!--<input class="filter-table-cell" type="search" placeholder="" data-column="5">-->
+                                <date-picker-filter date-start="DatetimeRange2.dateStart" date-end="DatetimeRange2.dateEnd"
+                                                        table="DatetimeRange2.Table"
+                                                        column=DatetimeRange2.Column
+                                                        scope-controller="DatetimeRange2.Scope">
+                                </date-picker-filter>
+                            </td>
+                            <td><input class="filter-table-cell" ng-model="TABLES['table_role'].param_filter_list[6]" ng-change="handleFilter('table_role')" type="search" placeholder="" data-column="6"></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="role in roles" on-last-repeat class="hoverRow">
+                            <td><input id="{{role.id}}" type="checkbox" class="ts_checkbox" data-md-icheck icheck ng-model="row_select"></td>
+                            <td><a ui-sref="roles-detail({roleName: role.id})">{{role.name}}</a></td>
+                            <td>{{role.description}}</td>
+                            <td class="uk-text-center">{{role.created | date: 'dd-MM-yyyy hh:mm:ss'}}</td>
+                            <td class="uk-text-center">
+                                <!--{{role.createdBy | date: 'dd-MM-yyyy hh:mm:ss'}}-->
+                                <get-attr-by-key-hyperlink url="CbxCreatedBy.url" key="CbxCreatedBy.key" value="role.createdBy" attr="CbxCreatedBy.attr" prefix="CbxCreatedBy.prefix" suffix="CbxCreatedBy.suffix"></get-attr-by-key-hyperlink>
+                            </td>
+                            <td class="uk-text-center">{{role.updated | date: 'dd-MM-yyyy hh:mm:ss'}}</td>
+                            <td class="uk-text-center">
+                                <!--{{role.updatedBy | date: 'dd-MM-yyyy hh:mm:ss'}}-->
+                                <get-attr-by-key-hyperlink url="CbxCreatedBy.url" key="CbxCreatedBy.key" value="role.updatedBy" attr="CbxCreatedBy.attr" prefix="CbxCreatedBy.prefix" suffix="CbxCreatedBy.suffix"></get-attr-by-key-hyperlink>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ts_pager" id="table_role_pager">
+                    <ul class="uk-pagination ts_pager">
+                        <li ng-click="selectPageClickHandle()" data-uk-tooltip title="{{selectPage}}">
+                            <input ng-change="selectPageHandle('table_role')" id="role_selectize_page" type="text"
+                                   config="TABLES['table_role'].selectize_page_config" options="TABLES['table_role'].selectize_page_options"
+                                   ng-model="TABLES['table_role'].selectize_page" name="TABLES['table_role'].selectize_page" selectize>
+                        </li>
+                        <li><a href="javascript:void(0)" class="firstPage" ng-click="handleFirstPage('table_role')"><i class="uk-icon-angle-double-left"></i></a></li>
+                        <li><a href="javascript:void(0)" class="prevPage" ng-click="handlePreviousPage('table_role')"><i class="uk-icon-angle-left"></i></a></li>
+                        <li><span class="pageDisplay">1-20/50</span></li>
+                        <li><a href="javascript:void(0)" class="nextPage" ng-click="handleNextPage('table_role')"><i class="uk-icon-angle-right"></i></a></li>
+                        <li><a href="javascript:void(0)" class="lastPage" ng-click="handleLastPage('table_role')"><i class="uk-icon-angle-double-right"></i></a></li>
+                        <li data-uk-tooltip title="{{pageSize}}">
+                            <input ng-change="selectPageNumHandle('table_role')" id="role_selectize_pageNum" type="text"
+                                   config="TABLES['table_role'].selectize_pageNum_config" options="TABLES['table_role'].selectize_pageNum_options"
+                                   ng-model="TABLES['table_role'].selectize_pageNum" name="TABLES['table_role'].selectize_pageNum" selectize>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

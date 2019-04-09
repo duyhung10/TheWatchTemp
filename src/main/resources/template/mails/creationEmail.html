@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.activation.title}"></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="#{email.activation.greeting(${user.email})}">
+            Dear
+        </p>
+        <p th:text="#{email.creation.text1}">
+            <span th:text="#{email.creation.text1}"></span>
+        </p>
+        <em th:text="${user.activationToken}"></em>
+        <p>
+            <span th:text="#{email.activation.text2}"></span>
+            <br/>
+            <em th:text="#{email.signature}"></em>
+        </p>
+    </body>
+</html>

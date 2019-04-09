@@ -1,0 +1,52 @@
+{
+  "warehouse": {
+    "common":{
+      "Configuration": "Thiết lập",
+      "WarehouseManagement":"Quản lý kho",
+      "Warehouse":"Kho",
+      "Route": "Route",
+      "Create": "Tạo mới",
+      "Edit": "Chỉnh sửa kho",
+      "Detail": "Chi tiết kho"
+    },
+
+    "detail": {
+      "Name": "Tên kho",
+      "ShortName": "Tên viết tắt",
+      "Address": "Địa chỉ",
+      "Created": "Ngày tạo",
+      "CreatedBy": "Tạo bởi",
+      "Updated": "Ngày cập nhật",
+      "UpdatedBy": "Cập nhật bởi",
+      "Config": "Thiết lập kho",
+      "IncomingShipment": "Incoming Shipments",
+      "OutgoingShipment": "Outgoing Shippings",
+      "IncomingOneStep": "1 Step: Store directly to warehouse",
+      "IncomingTwoSteps": "2 Steps: Unload in input location then go to stock",
+      "IncomingThreeSteps": "3 Steps: Unload in input location, go through a quality control before being admitted in stock",
+      "OutgoingShipOnly": "Ship Only: Ship directly from stock",
+      "OutgoingPickShip": "Pick + Ship: Bring goods to output location before shipping",
+      "OutgoingPickPackShip": "Pick + Pack + Ship: Make packages into a dedicated location, then bring them to the output location for shipping"
+    },
+
+    "column": {
+      "Code":"Mã kho",
+      "Name":"Tên kho",
+      "LocationStock":"Vị trí vật lý",
+      "Address":"Địa chỉ",
+      "Status":"Trạng thái",
+      "Created":"Ngày tạo",
+      "Updated":"Ngày cập nhật",
+      "CreatedBy":"Tạo bởi",
+      "UpdatedBy":"Cập nhật bởi"
+    },
+
+    "messages": {
+      "errorCreateWarehouse":"Không thể tạo kho mới. Vui lòng kiểm tra thông tin và thử lại.",
+      "required":"Trường này là bắt buộc.",
+      "maxLengthRule":"Trường này chứa tối đa 200 ký tự.",
+      "maxLengthShortNameRule":"Tên này chỉ được chứa tối đa 5 ký tự.",
+      "wrongPatternRule":"Trường này không được chứa ký tự đặc biệt và khoảng trắng."
+    }
+  }
+}

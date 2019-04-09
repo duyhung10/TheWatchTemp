@@ -1,0 +1,81 @@
+{
+  "common-ui-element": {
+    "button":{
+      "Add":"Thêm",
+      "Remove":"Loại bỏ",
+      "Create":"Tạo mới",
+      "New":"Tạo mới",
+      "Edit":"Sửa",
+      "Back":"Quay lại",
+      "Delete":"Xóa",
+      "Save": "Lưu",
+      "SaveAs":"Lưu như",
+      "SaveAndClose":"Lưu và đóng",
+      "Cancel": "Hủy bỏ",
+      "Columns":"Cột",
+      "Filter":"Lọc",
+      "Close":"Đóng",
+      "Clear":"Xóa",
+      "ClearAll":"Xóa tất cả",
+      "Report":"Báo cáo",
+      "Discard":"Hủy bỏ",
+      "Import":"Nhập",
+      "Export":"Xuất",
+      "Print":"In",
+      "Finish": "Kết thúc",
+      "Reset": "Đặt lại",
+      "Continue": "Tiếp tục",
+      "Warning": "Cảnh báo",
+      "Apply": "Áp dụng",
+      "restore":"Khôi phục"
+    },
+
+    "actionConfirm":{
+      "Delete":"Bạn có chắc chắn muốn xóa không?",
+      "restore":"Thao tác này sẽ đưa vật tư về trạng thái Good. Bạn có chắc chắn muốn thực hiện?"
+    },
+
+    "titlePage":{
+      "Home":"Trang chủ",
+      "Admin":"Quản trị",
+      "Setting":"Cài đặt",
+      "UserAndPermision":"Người dùng & Cho phép",
+      "MasterData":"Dữ liệu",
+      "Inventory":"Kho"
+    },
+    "ManPage":{
+      "Manufacturer":"Nhà sản xuất",
+      "ManufacturerCode":"Mã NSX",
+      "ManufacturerName":"Tên NSX",
+      "ManufacturerAlias":"Tên viết tắt NSX",
+      "Quanlity":"Chất lượng",
+      "DeleteMan":"Xóa Nhà sản xuất",
+      "ExportExcel":"Tạo file Excel",
+      "ImportMan":"Import Nhà sản xuất",
+      "DuplicateMan":"Duplicate Nhà sản xuất",
+      "Address":"Địa chỉ",
+      "Description":"Description",
+      "Phone":"Số điện thoại",
+      "Fax":"Fax",
+      "Email":"Email"
+    },
+    "SuppPage":{
+      "Supplier":"Nhà cung cấp",
+      "ContactName":"Tên liên hệ",
+      "ContactPhone":"SĐT liên hệ",
+      "SupplierName":"Tên NCC",
+      "SupplierAlias":"Tên viết tắt NCC",
+      "ContactEmail":"Contact Email",
+      "ContactPosition":"Contact Position",
+      "ContactDescription":"Contact Description",
+      "DeleteSup":"Xóa NCC",
+      "ImportSup":"Import NCC",
+      "DuplicateSup":"Duplicate NCC",
+      "CompareSup":"Compare NCC",
+      "CriteriaSup":"Create Supplier Criteria"
+    },
+    "messages": {
+      "noResult":"Không có dữ liệu nào được tìm thấy"
+    }
+  }
+}

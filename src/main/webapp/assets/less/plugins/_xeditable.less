@@ -1,0 +1,362 @@
+.tip-yellowsimple {
+    background: @white;
+    position: relative;
+    .boxShadowHelper(2);
+    border: none;
+    padding: 16px;
+    min-width: 240px;
+    z-index: 9999;
+    border-radius: 3px;
+    .tip-inner {
+        > div {
+            > label {
+                font-weight: 500;
+                margin-bottom: 8px;
+                display: block;
+                font-size: 15px;
+            }
+        }
+    }
+}
+.editable {
+    &-footer {
+        margin-top: 16px;
+        text-align: right;
+    }
+    &-container {
+        .md-input {
+            display: inline-block;
+            transition: all 280ms ease;
+            &:focus {
+                border-bottom-color: @primary_color_dark !important;
+            }
+        }
+        select {
+            &:disabled {
+                display: block;
+                width: 100%;
+                height: 42px;
+                border-width: 0 0 1px 0;
+                border-bottom-color: @border_color;
+            }
+        }
+        textarea {
+            height: 120px;
+            resize: vertical;
+            overflow-y: auto;
+        }
+        .select2-container {
+            width: 240px;
+            .select2-choice {
+                background: none;
+                border-width: 0 0 1px 0;
+                border-style: solid;
+                border-color: @border_color;
+                border-radius: 0;
+                .select2-arrow {
+                    background: none;
+                    border: none;
+                }
+            }
+            &-multi {
+                .select2-choices {
+                    background: none;
+                    border: 1px solid @border_color;
+                    border-radius: 0;
+                    box-shadow: none;
+                    .select2-search-choice {
+                        background: @md-color-grey-200;
+                        border: none;
+                        border-radius: 18px;
+                        padding: 4px 24px 4px 12px;
+                        box-shadow: none;
+                        font-size: 13px;
+                    }
+                }
+                .select2-search-choice-close {
+                    left: auto;
+                    right: 4px;
+                }
+            }
+        }
+    }
+    &-inline {
+        background: @white;
+        border-radius: 3px;
+        border: 1px solid @border_color;
+        padding: 8px;
+    }
+    &-address {
+        + div {
+            margin-top: 12px;
+        }
+        label {
+            > span,
+            > input {
+                display: inline-block !important;
+            }
+            > span {
+                width: 80px;
+            }
+            > input {
+                width: auto !important;
+            }
+        }
+    }
+}
+
+.select2-drop {
+    .boxShadowHelper(2);
+    border-color: transparent !important;
+}
+.select2-results {
+    margin-top: 8px;
+    .select2-highlighted {
+        background: @background_color_default;
+        color: @text_primary_color;
+    }
+}
+.select2-search input {
+    border-width: 0 0 1px;
+    box-shadow: none;
+}
+.select2-container-active .select2-choice, .select2-container-active .select2-choices {
+    box-shadow: none;
+}
+
+.ui-datepicker {
+    &,
+    .ui-datepicker-header {
+        border: none;
+    }
+    th {
+        font: 400 13px / 15px "Roboto", sans-serif;
+        text-transform: uppercase;
+        color: @text_secondary_color;
+    }
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+        &.ui-state-hover {
+            background: transparent !important;
+            border-color: transparent !important;
+            font-weight: 400 !important;
+            color: @text_secondary_color !important;
+        }
+        span {
+            background: transparent;
+            display: block;
+            position: relative;
+            left: 0;
+            top: 0;
+            margin: 0;
+            width: 24px;
+            height: 24px;
+            &:after {
+                position: absolute;
+                top: 2px;
+                display: block;
+                font-family: 'FontAwesome';
+                color: @text_secondary_color !important;
+                text-indent: 0;
+                font-size: 14px;
+            }
+        }
+    }
+    .ui-datepicker-prev span {
+        &:after {
+            left: 0;
+            content: '\f053';
+        }
+    }
+    .ui-datepicker-next span {
+        &:after {
+            right: 0;
+            content: '\f054';
+        }
+    }
+    tbody {
+        td {
+            a,
+            span {
+                box-sizing: border-box;
+                padding: 4px;
+                text-align: center;
+                width: 30px;
+                height: 30px;
+                line-height: 24px;
+                display: block;
+                border-radius: 50%;
+                &:hover {
+                    background: @background_color_default;
+                }
+            }
+        }
+    }
+    select {
+        border-width: 0 0 1px;
+        + select {
+            margin-left: 4px !important;
+        }
+    }
+    .ui-state-default,
+    .ui-widget-content .ui-state-default,
+    .ui-widget-header .ui-state-default {
+        border: none;
+        background: transparent;
+    }
+    .ui-state-active {
+        background: @input_on_color !important;
+        color: @white;
+    }
+}
+
+.editableform {
+    margin-bottom: 0;
+    .control-group {
+        margin-bottom: 0;
+        white-space: nowrap;
+        line-height: 20px;
+    }
+    .form-control {
+        width: auto;
+    }
+}
+
+.editable-buttons {
+    &.editable-buttons-bottom {
+        display: block;
+    }
+    button.ui-button-icon-only {
+        height: 24px;
+        width: 30px;
+    }
+}
+
+.editable-input {
+    .editableform-loading {
+        background-position: left 5px;
+    }
+    .add-on .icon-th {
+        margin-top: 3px;
+        margin-left: 1px;
+    }
+}
+.editableform-loading {
+    background: url('../img/spinners/spinner.gif') center center no-repeat;
+    height: 32px;
+    margin: 24px 0;
+}
+.editable-error-block {
+    margin: 8px 0 0 0;
+    white-space: normal;
+    text-align: center;
+    &.ui-state-error {
+        padding: 3px;
+    }
+}
+.editable-error {
+    color: @danger_color;
+}
+.editableform .editable-date {
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+.editable-checklist {
+    label {
+        white-space: nowrap;
+        input[type="checkbox"],
+        span {
+            vertical-align: middle;
+            margin: 0;
+        }
+    }
+    > div {
+        + div {
+            margin-top: 8px;
+        }
+    }
+}
+.editable-wysihtml5 {
+    width: 566px;
+    height: 250px;
+}
+.editable-clear {
+    clear: both;
+    font-size: 0.9em;
+    text-decoration: none;
+    text-align: right;
+}
+.editable-clear-x {
+    display: block;
+    width: 24px;
+    height: 42px;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    &:after {
+        opacity: 0.6;
+        content: '\e5cd';
+        font-family: "Material Icons";
+        font-size: 18px;
+        position: absolute;
+        top: 11px;
+        right: 8px;
+        display: block;
+        color: @text_secondary_color;
+        cursor: pointer;
+    }
+    &:hover {
+        &:after {
+            opacity: 1;
+        }
+    }
+}
+.editable-pre-wrapped {
+    white-space: pre-wrap;
+}
+.editable-container.editable-popup {
+    max-width: none !important;
+}
+.editable-container.popover {
+    width: auto;
+}
+.editable-container.editable-inline {
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+}
+.editable-container.ui-widget {
+    font-size: inherit;
+    z-index: 9990;
+}
+.editable-click,
+a.editable-click,
+a.editable-click:hover {
+    text-decoration: none;
+    border-bottom: dashed 1px #0088cc;
+}
+.editable-click.editable-disabled,
+a.editable-click.editable-disabled,
+a.editable-click.editable-disabled:hover {
+    color: #585858;
+    cursor: default;
+    border-bottom: none;
+}
+.editable-empty, .editable-empty:hover,
+.editable-empty:focus{
+    font-style: italic;
+    color: #DD1144;
+    text-decoration: none;
+}
+.editable-unsaved {
+    font-weight: bold;
+}
+.editable-bg-transition {
+    transition: background-color 1400ms ease-out;
+}
+.form-horizontal .editable {
+    padding-top: 5px;
+    display:inline-block;
+}

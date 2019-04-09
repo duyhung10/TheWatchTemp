@@ -1,0 +1,72 @@
+{
+  "scrap": {
+    "titlePage":{
+      "home":"Home",
+      "configuration":"Configuration",
+      "warehouseMan":"Warehouse Management",
+      "warehouse":"Warehouse",
+      "route":"Route"
+    },
+    "detail": {
+      "createScrap":"Create Scrap",
+      "scrap": "SCRAP",
+      "partner":"Partner",
+      "sourceLocation":"Source Location",
+      "scheduledDate":"Scheduled Date",
+      "sourceDocument":"Source Document",
+      "stockOperation":"Stock Operation",
+      "productMove":"Product Move",
+      "draft":"Draft",
+      "done":"Done",
+      "scrapOrders": "Scrap Orders"
+    },
+    "button": {
+      "done" : "DONE",
+      "cancel" : "CANCEL"
+    },
+    "placeholder": {
+      "vnptPn": "Select VNPT P/N",
+      "manPn": "Select Man P/N"
+    },
+    "table":{
+      "vnptPn": "VNPT P/N",
+      "description": "Description",
+      "manPn": "Man P/N",
+      "lot": "Unit ID",
+      "package": "Package",
+      "quantity": "Số lượng",
+      "owner": "Owner",
+      "location": "Location",
+      "scrapLocation": "Scrapped Location",
+      "oldVnptPn": "Old VNPT P/N",
+      "manufacturer": "Manufacturer",
+      "actions": "Actions",
+      "columns": "Columns",
+      "addAnItem": "Add An Item"
+    },
+    "listScraps":{
+      "reference": "Reference",
+      "createDate": "Create Date",
+      "location": "Location",
+      "scrapLocation": "Scrap Location",
+      "status": "Trạng thái",
+      "active": "Active",
+      "createdBy": "Created By",
+      "updated": "Updated",
+      "updatedBy": "Updated By"
+    },
+    "headerPage":{
+      "import":"Import",
+      "export":"Export",
+      "active":"Active",
+      "inactive":"Archive",
+      "delete": "Delete"
+    },
+    "messages": {
+      "errorCreate":"Unable to create new Scrap. Please check your data and try again.",
+      "errorUpdate":"Unable to update Scrap. Please check your data and try again.",
+      "errorDelete":"Unable to remove.",
+      "errorUpdatePriority":"Unable to update priority."
+    }
+  }
+}

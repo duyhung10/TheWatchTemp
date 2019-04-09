@@ -1,0 +1,101 @@
+{
+  "admin": {
+    "user" : {
+      "create" : "New User",
+      "list": "Users",
+      "detail": "User Detail",
+      "edit": "Edit User",
+      "column": {
+        "Email":"Email",
+        "Password":"Password",
+        "ConfirmPassword":"Confirm Password",
+        "FirstName":"First name",
+        "LastName":"Last name",
+        "Address": "Address",
+        "Phone": "Phone",
+        "Position": "Position",
+        "Roles": "User Role",
+        "Status":"Status",
+        "Created":"Created",
+        "Updated":"Updated",
+        "CreatedBy":"Created by",
+        "UpdatedBy":"Updated by"
+      }
+    },
+    "student" : {
+      "create" : "New Student",
+      "list": "Students",
+      "detail": "Student Detail",
+      "edit": "Edit Student",
+      "column": {
+        "Email":"Email",
+        "Password":"Password",
+        "ConfirmPassword":"Confirm Password",
+        "FirstName":"First name",
+        "LastName":"Last name",
+        "Name": "Name",
+        "Address": "Address",
+        "Phone": "Phone",
+        "Position": "Position",
+        "Roles": "User Role",
+        "Status":"Status",
+        "Created":"Created",
+        "Updated":"Updated",
+        "CreatedBy":"Created by",
+        "UpdatedBy":"Updated by"
+      }
+    },
+    "privilege" : {
+      "create" : "New Privilege",
+      "list": "Privileges",
+      "detail": "Privilege Detail",
+      "edit": "Edit Privilege"
+    },
+    "role" : {
+      "create" : "New Role",
+      "list": "Roles",
+      "detail": "Role Detail",
+      "edit": "Edit Role",
+      "column": {
+        "Name":"Name",
+        "Description":"Description",
+        "AvailablePrivileges":"Available Privileges",
+        "SelectPrivileges":"Selected Privileges",
+        "FilterTree":"Filter result..",
+        "Created":"Created",
+        "Updated":"Updated",
+        "CreatedBy":"Created by",
+        "UpdatedBy":"Updated by"
+      }
+    },
+    "menu":{
+      "setting": "Setting",
+      "generalSetting": "General Setting",
+      "userPermision": "User & Permission",
+      "users":"Users",
+      "roles":"Roles",
+      "privileges":"Privileges",
+      "uoms":"Unit of Measures",
+      "configuration":"Configuration"
+    },
+    "pagination": {
+      "selectPage":"Select Page",
+      "pageSize":"Page Size"
+    },
+    "messages": {
+      "errorCreateUser":"Unable to create new user. Please check your data and try again.",
+      "errorCreateRole":"Unable to create new role. Please check your data and try again.",
+      "errorCreatePrivilege":"Unable to create new privilege. Please check your data and try again.",
+      "errorUpdateUser":"Unable to update user. Please check your data and try again.",
+      "errorUpdateRole":"Unable to update role. Please check your data and try again.",
+      "errorUpdatePrivilege":"Unable to update privilege. Please check your data and try again.",
+      "errorDeleteUser":"Unable to delete user. Please check your data and try again.",
+      "errorDeleteRole":"Unable to delete role. Please check your data and try again.",
+      "errorDeletePrivilege":"Unable to delete privilege. Please check your data and try again.",
+      "invalidEmail":"Invalid email.",
+      "required":"This field is required.",
+      "confirmPassword":"Confirm password not match.",
+      "passwordPattern":"Password is too short. It should have 6 characters or more."
+    }
+  }
+}

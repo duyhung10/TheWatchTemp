@@ -1,0 +1,36 @@
+spring:
+  jpa:
+   jpa:
+      open-in-view: false
+      hibernate:
+        ddl-auto: create-drop
+        naming:
+          physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+          implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategys
+  datasource:
+    url: jdbc:hsqldb:mem:erp
+    username: sa
+    password:
+  mail:
+        host: smtp.gmail.com
+        port: 587
+        username:
+        password:
+        protocol: smtp
+        tls: true
+        properties.mail.smtp:
+          auth: true
+          starttls.enable: true
+          ssl.trust: smtp.gmail.com
+
+application:
+    activation:
+      expirePeriod: 86400 #milliseconds
+      enableMail: false #true/false
+    ldap:
+      enabled: false #true/false
+      url: ldap://172.24.104.10:389
+      base: dc=vnpt-technology,dc=vn
+      userDN: ssdclab@vnpt-technology.vn
+      password: Ssdc123!
+

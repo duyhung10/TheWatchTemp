@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "VNPT Technology",
+        "code": "NP",
+        "alias": "VNPT Technology",
+        "rate": 2,
+        "num_supplier": 10,
+        "purchasing": 1
+    },
+    {
+        "id": 2,
+        "name": "Guangdong SIPU Industrial Co,.Ltd.",
+        "code": "S8",
+        "alias": "SIPU",
+        "rate": 3,
+        "num_supplier": 10,
+        "purchasing": 1
+    },
+    {
+        "id": 3,
+        "name": "Wuhan Hengtaitong Technology Co.,Ltd",
+        "code": "PB",
+        "alias": "Wuhan Hengtaitong",
+        "rate": 1,
+        "num_supplier": 10,
+        "purchasing": 1
+    },
+    {
+        "id": 4,
+        "name": "Youte",
+        "code": "WU",
+        "alias": "Youte",
+        "rate": 1,
+        "num_supplier": 10,
+        "purchasing": 1
+    },
+    {
+        "id": 5,
+        "name": "Hengxin",
+        "code": "DY",
+        "alias": "Hengxin",
+        "rate": 1,
+        "num_supplier": 10,
+        "purchasing": 1
+    }
+,
+    {
+        "id": 6,
+        "name": "Sơn Lâm",
+        "code": "HM",
+        "alias": "Sơn Lâm",
+        "rate": 1,
+        "num_supplier": 10,
+        "purchasing": 1
+    }
+]

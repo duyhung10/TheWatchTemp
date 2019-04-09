@@ -1,0 +1,39 @@
+.list_view,
+.grid_view {
+    > * {
+        transition: all 120ms @md_easing;
+    }
+}
+.grid_view {
+    &.uk-grid-medium {
+        margin-top: -32px;
+    }
+    &.uk-grid-small {
+        margin-top: -5px;
+    }
+}
+.list_view {
+    margin-left: 0 !important;
+    > div,
+    > li {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        .md-card {
+            overflow: hidden;
+        }
+        .md-card-head {
+            float: left;
+            border: none;
+            width: 200px;
+        }
+        .md-card-content {
+            overflow: hidden;
+        }
+    }
+    > div + div,
+    > li + li {
+        border-top: 1px solid @background_color_default_hex;
+        margin: 0 !important;
+    }
+}

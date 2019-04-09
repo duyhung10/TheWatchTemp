@@ -1,0 +1,22 @@
+{
+  "bom": {
+    "field":{
+      "Product":"Product",
+      "ProductVersion":"Product version",
+      "Quantity":"Quantity",
+      "Reference":"Reference",
+      "BomRdVersion":"R&D BOM Version",
+      "BomType":"Bom type",
+      "No":"No.",
+      "UoM":"UoM",
+      "ManName":"Man Name",
+      "ManPN":"Man P/N",
+      "ManBomName":"Man BOM name",
+      "Routing":"Routing",
+      "RoutingOperation":"Routing Operation",
+      "MaterialType":"Material Type",
+      "OldPN":"Old P/N",
+      "Note":"Note"
+    }
+  }
+}

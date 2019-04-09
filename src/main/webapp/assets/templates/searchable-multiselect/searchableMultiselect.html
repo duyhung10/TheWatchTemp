@@ -1,0 +1,66 @@
+<div class="dropdown searchable-multi-select" dropdown on-toggle="toggled(open)">
+	<a class="dropdown-toggle btn btn-default" data-toggle="dropdown" dropdown-toggle data-target="#"
+		tooltip="{{ commaDelimitedSelected() }}" ng-class="{'disabled': readOnly}" style="height: 37px;border-radius: unset;">
+
+		<span class="limit-ellipsis" ng-style="{ 'width' : width }">
+			<small ng-class="{'text-muted': commaDelimitedSelected() === 'Nothing Selected'}">
+				{{ commaDelimitedSelected() }}
+			</small>
+			<b class="caret" ng-if="!readOnly && allItems.length"></b>
+		</span>
+	</a>
+	<ul ng-if="!readOnly && allItems.length" class="dropdown-menu dropdown-menu-form form-control" role="menu">
+		<li><input type="text" class="form-control" ng-model="searchQuery" placeholder="Search"></li>
+		<li ng-repeat="item in ::allItems track by $index"
+			ng-hide="searchQuery.length && item[displayAttr].toLowerCase().indexOf(searchQuery.toLowerCase()) < 0">
+			<label class="checkbox clickable" ng-click="updateSelectedItems(item)"
+				ng-class="{'text-success': isItemSelected(item) }">
+
+				{{ item[displayAttr] }}
+				<span class="glyphicon glyphicon-remove pull-right clickable"
+					ng-show="isItemSelected(item)"></span>
+			</label>
+		</li>
+	</ul>
+</div>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<style>
+	body {
+	  padding-top: 10em;
+	}
+
+	.searchable-multi-select {
+	  position: relative;
+	}
+
+	.searchable-multi-select a {
+		width: 100%;
+		padding: 5px 7px;
+		overflow: hidden;
+	}
+
+	.searchable-multi-select a span {
+		display: block;
+		overflow: hidden;
+		margin-right: 10px;
+		margin-top: 3px;
+	}
+
+	.searchable-multi-select a .caret {
+		position: absolute;
+		right: 7px;
+		top: 47%;
+	}
+
+	ul.dropdown-menu-form {
+		padding: 5px 10px 0;
+		overflow-y: auto;
+		height: 300px;
+	}
+
+	span.limit-ellipsis {
+	  text-overflow: ellipsis;
+	  white-space: nowrap;
+	  overflow: hidden;
+	}
+</style>

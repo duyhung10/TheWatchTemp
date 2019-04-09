@@ -1,0 +1,123 @@
+<div id="page_content">
+    <div id="page_heading" data-uk-sticky="{ top: 48, media: 960 }">
+        <div class="heading_actions action-padding-top">
+            <div data-uk-dropdown="{mode:'click'}">
+                <i class="md-icon material-icons">&#xE5D4;</i>
+                <div class="uk-dropdown">
+                    <ul class="uk-nav">
+                        <li><a id="activateBtn" class="hideElement" ng-click="activate()" data-translate="route.headerPage.active"></a></li>
+                        <li><a id="deactivateBtn" class="hideElement" ng-click="deactivate()" data-translate="route.headerPage.inactive"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <span class="route-header">
+            <a ui-sref="students">{{titlePage.home | translate}}</a>
+            <span> / </span><a ui-sref="students">{{titlePage.setting | translate}}</a>
+            <span> / </span><a ui-sref="students">{{titlePage.student_permision | translate}}</a>
+            <span> / {{pageTitle | translate}}</span>
+        </span>
+        </br>
+        <div class="uk-margin-small-top">
+            <a ui-sref="students-create" class="md-btn md-btn-primary md-btn-small"><span class="uk-text-bold">{{button.create | translate}}</span></a>
+            <button id="deleteBtn" class="md-btn md-btn-small hideElement" ng-click="handleDeleteRows()"><span class="uk-text-bold">{{button.delete | translate}}</span></button>
+        </div>
+    </div>
+    <div id="page_content_inner">
+        <jhi-alert></jhi-alert>
+        <div class="md-card">
+            <div class="md-card-content">
+                <div class="uk-overflow-container uk-margin-bottom">
+                    <table class="table-max-len hoverTable uk-table uk-table-align-vertical uk-table-striped uk-table-nowrap tablesorter tablesorter-altair" id="table_user">
+                        <thead>
+                        <tr>
+                            <th data-name="Select" data-priority="9"><input type="checkbox" class="ts_checkbox_all"></th>
+                            <th class="pointerMouse boldHeader" ng-click="handleSort($event, 1, 'table_student')" data-priority="1" data-translate="admin.student.column.Email"><i class="material-icons md-20 rightCell">{{TABLES['table_student'].param_sort_list[1]}}</i></th>
+                            <th style="min-width: 120px" class="pointerMouse boldHeader" ng-click="handleSort($event, 2, 'table_student')" data-priority="2" data-translate="admin.student.column.Name"><i class="material-icons md-20 rightCell">{{TABLES['table_student'].param_sort_list[2]}}</i></th>
+                            <th style="min-width: 120px" class="pointerMouse boldHeader" ng-click="handleSort($event, 3, 'table_student')" data-priority="3" data-translate="admin.student.column.Phone"><i class="material-icons md-20 rightCell">{{TABLES['table_student'].param_sort_list[3]}}</i></th>
+                            <th class="pointerMouse boldHeader tablesorter-headerAsc" ng-click="handleSort($event, 4, 'table_student')" data-priority="4" data-translate="admin.student.column.Created"><i class="material-icons md-20 rightCell">{{TABLES['table_student'].param_sort_list[4]}}</i></th>
+                            <th style="min-width: 120px" class="pointerMouse boldHeader" ng-click="handleSort($event, 5, 'table_student')" data-priority="5" data-translate="admin.student.column.CreatedBy"><i class="material-icons md-20 rightCell">{{TABLES['table_student'].param_sort_list[5]}}</i></th>
+                            <th class="pointerMouse boldHeader" ng-click="handleSort($event, 6, 'table_student')" data-priority="6" data-translate="admin.student.column.Updated"><i class="material-icons md-20 rightCell">{{TABLES['table_student'].param_sort_list[6]}}</i></th>
+                            <th style="min-width: 120px" class="pointerMouse boldHeader" ng-click="handleSort($event, 7, 'table_student')" data-priority="7" data-translate="admin.student.column.UpdatedBy"><i class="material-icons md-20 rightCell">{{TABLES['table_student'].param_sort_list[7]}}</i></th>
+                            <th style="min-width: 180px" class="pointerMouse boldHeader" data-priority="8" data-translate="admin.student.column.Status"></th>
+                        </tr>
+                        <!--<tr>-->
+                            <!--<td>&lt;!&ndash;<input class="filter-table-cell-small disableMouse" type="search" placeholder="" disabled data-column="0">&ndash;&gt;</td>-->
+                            <!--<td><input class="filter-table-cell" ng-model="TABLES['table_student'].param_filter_list[1]" ng-change="handleFilter('table_student')" type="search" placeholder="" data-column="1"></td>-->
+                            <!--<td><input class="filter-table-cell" ng-model="TABLES['table_student'].param_filter_list[2]" ng-change="handleFilter('table_student')" type="search" placeholder="" data-column="2"></td>-->
+                            <!--<td><input class="filter-table-cell" ng-model="TABLES['table_student'].param_filter_list[3]" ng-change="handleFilter('table_student')" type="search" placeholder="" data-column="3"></td>-->
+                            <!--<td>-->
+                                <!--&lt;!&ndash;<input class="filter-table-cell" type="search" placeholder="" data-column="4">&ndash;&gt;-->
+                                <!--<date-picker-filter date-start="DatetimeRange1.dateStart" date-end="DatetimeRange1.dateEnd"-->
+                                                    <!--table="DatetimeRange1.Table"-->
+                                                    <!--column="DatetimeRange1.Column"-->
+                                                    <!--scope-controller="DatetimeRange1.Scope">-->
+                                <!--</date-picker-filter>-->
+                            <!--</td>-->
+                            <!--<td><input class="filter-table-cell" ng-model="TABLES['table_student'].param_filter_list[5]" ng-change="handleFilter('table_student')" type="search" placeholder="" data-column="5"></td>-->
+                            <!--<td>-->
+                                <!--&lt;!&ndash;<input class="filter-table-cell" type="search" placeholder="" data-column="6">&ndash;&gt;-->
+                                <!--<date-picker-filter date-start="DatetimeRange2.dateStart" date-end="DatetimeRange2.dateEnd"-->
+                                                    <!--table="DatetimeRange2.Table"-->
+                                                    <!--column=DatetimeRange2.Column-->
+                                                    <!--scope-controller="DatetimeRange2.Scope">-->
+                                <!--</date-picker-filter>-->
+                            <!--</td>-->
+                            <!--<td><input class="filter-table-cell" ng-model="TABLES['table_student'].param_filter_list[7]" ng-change="handleFilter('table_student')" type="search" placeholder="" data-column="7"></td>-->
+                            <!--<td>-->
+                                <!--<active-search-table cbxplaceholder="CbxActive.Placeholder"-->
+                                                     <!--api="CbxActive.Api"-->
+                                                     <!--table="CbxActive.Table"-->
+                                                     <!--column="CbxActive.Column"-->
+                                                     <!--scopecontroller="CbxActive.Scope"-->
+                                                     <!--ngmodel="CbxActive.ngModel">-->
+                                <!--</active-search-table>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="student in student" on-last-repeat class="hoverRow">
+                            <td><input id="{{student.id}}" type="checkbox" class="ts_checkbox" data-md-icheck icheck ng-model="row_select"></td>
+                            <td><a ui-sref="students-detail({studentId: student.id })">{{student.email}}</a></td>
+                            <td>{{student.name}}</td>
+                            <td>{{student.phone}}</td>
+                            <td class="uk-text-center">{{student.created | date: 'dd-MM-yyyy hh:mm:ss'}}</td>
+                            <td class="uk-text-center">
+                                <!--{{student.createdBy}}-->
+                                <get-attr-by-key-hyperlink url="CbxCreatedBy.url" key="CbxCreatedBy.key" value="student.createdBy" attr="CbxCreatedBy.attr" prefix="CbxCreatedBy.prefix" suffix="CbxCreatedBy.suffix"></get-attr-by-key-hyperlink>
+                            </td>
+                            <td class="uk-text-center">{{student.updated | date: 'dd-MM-yyyy hh:mm:ss'}}</td>
+                            <td class="uk-text-center">
+                                <!--{{student.updatedBy}}-->
+                                <get-attr-by-key-hyperlink url="CbxCreatedBy.url" key="CbxCreatedBy.key" value="student.updatedBy" attr="CbxCreatedBy.attr" prefix="CbxCreatedBy.prefix" suffix="CbxCreatedBy.suffix"></get-attr-by-key-hyperlink>
+                            </td>
+                            <td ng-if="student.active == 1"><span class="uk-badge uk-badge-success">Active</span></td>
+                            <td ng-if="student.active == 0"><span class="uk-badge uk-badge-danger">Inactive</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ts_pager" id="table_student_pager">
+                    <ul class="uk-pagination ts_pager">
+                        <li ng-click="selectPageClickHandle()" data-uk-tooltip title="{{selectPage}}">
+                            <input ng-change="selectPageHandle('table_student')" id="student_selectize_page" type="text"
+                                   config="TABLES['table_student'].selectize_page_config" options="TABLES['table_student'].selectize_page_options"
+                                   ng-model="TABLES['table_student'].selectize_page" name="TABLES['table_student'].selectize_page" selectize>
+                        </li>
+                        <li><a href="javascript:void(0)" class="firstPage" ng-click="handleFirstPage('table_student')"><i class="uk-icon-angle-double-left"></i></a></li>
+                        <li><a href="javascript:void(0)" class="prevPage" ng-click="handlePreviousPage('table_student')"><i class="uk-icon-angle-left"></i></a></li>
+                        <li><span class="pageDisplay">1-20/50</span></li>
+                        <li><a href="javascript:void(0)" class="nextPage" ng-click="handleNextPage('table_student')"><i class="uk-icon-angle-right"></i></a></li>
+                        <li><a href="javascript:void(0)" class="lastPage" ng-click="handleLastPage('table_student')"><i class="uk-icon-angle-double-right"></i></a></li>
+                        <li data-uk-tooltip title="{{pageSize}}">
+                            <input ng-change="selectPageNumHandle('table_student')" id="user_selectize_pageNum" type="text"
+                                   config="TABLES['table_student'].selectize_pageNum_config" options="TABLES['table_student'].selectize_pageNum_options"
+                                   ng-model="TABLES['table_student'].selectize_pageNum" name="TABLES['table_student'].selectize_pageNum" selectize>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

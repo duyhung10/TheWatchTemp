@@ -1,0 +1,42 @@
+    <!-- header -->
+    <div oc-lazy-load="['app/layouts/header/headerController.js']">
+        <div ng-include="'app/layouts/header/headerView.html'" ng-controller="main_headerCtrl"></div>
+    </div>
+
+    <!-- restricted main content -->
+    <div ui-view ng-class="{ 'uk-height-1-1': page_full_height }"></div>
+
+    <!-- main sidebar -->
+    <div oc-lazy-load="['app/layouts/main_sidebar/main_sidebarController.js']" ng-hide="topMenuActive">
+        <div ng-include="'app/layouts/main_sidebar/main_sidebarView.html'" ng-controller="main_sidebarCtrl"></div>
+    </div>
+
+    <!-- tuannp disable style switcher -->
+    <!-- style switcher -->
+    <!--<div oc-lazy-load="['assets/css/style_switcher.min.css','app/layouts/style_switcher/style_switcher.js']">-->
+        <!--<style-switcher></style-switcher>-->
+    <!--</div>-->
+
+    <!-- PHUONGND: ADD GLOWL NOTIFICATIONS -->
+    <div ng-repeat="(id, notification) in listNotifications track by id">
+        <growl-notification class="pointerMouse" ng-click="goToNotification(id)" on-close="removeNotification(id)" ttl={{notification.showTime}}>
+            <div ng-if="notification.created" class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-3">
+                    <img ng-if="!notification.userAvatar" class="uk-border-circle" ng-src="{{avatarImg}}" alt=""/>
+                    <img ng-if="notification.userAvatar" class="uk-border-circle" ng-src="data:image/*;base64,{{notification.userAvatar}}" alt="user avatar"/>
+                </div>
+                <div class="uk-width-2-3">
+                    <div ng-bind-html="notification.content"></div>
+                    <div class="uk-text-small">{{notification.timeString}}</div>
+                </div>
+                <div ng-show="false" id="closeNotification_{{id}}" ng-click="$growlNotification.remove()"></div>
+            </div>
+            <div ng-if="!notification.created" class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1 uk-vertical-align">
+                    <div class="uk-vertical-align-middle">
+                        <div ng-bind-html="notification.content"></div>
+                    </div>
+                </div>
+            </div>
+        </growl-notification>
+    </div>

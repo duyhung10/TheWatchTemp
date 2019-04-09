@@ -1,0 +1,31 @@
+<div id="page_content">
+    <div id="page_content_inner">
+        <div class="uk-grid uk-grid-width-large-1-1 uk-grid-width-medium-1-1 uk-grid-medium uk-sortable sortable-handler hierarchical_show" data-uk-sortable data-uk-grid-margin hierarchical-show>
+            <div ng-repeat="logs in logData">
+                <div class="md-card">
+                    <div class="md-card-toolbar">
+                        <h3 class="uk-width-medium-1-1 md-card-toolbar-heading-text uk-container-center">
+                            <div class="uk-text-bold uk-text-center">{{logs.date}}</div>
+                        </h3>
+                    </div>
+                    <div class="md-card-content" data-uk-grid-margin>
+                        <div ng-repeat="user_log in logs.data">
+                            <div class="uk-grid">
+                                <div class="uk-width-medium-1-10 uk-vertical-align">
+                                    <img class="uk-border-circle uk-vertical-align-middle" src="assets/img/avatars/avatar.jpg" width="200" height="200" />
+                                </div>
+                                <div class="uk-width-medium-9-10 uk-vertical-align">
+                                    <div class="uk-vertical-align-middle uk-width-1-1" style="background-color: #eaeaea; border-width: 1px; border-radius: 15px">
+                                        <div class="uk-margin-top uk-margin-left uk-margin-right">Note by <span class="uk-text-bold">{{user_log.userName}}</span> - {{logs.date}}</div>
+                                        <div class="uk-text-bold uk-margin-left">{{user_log.action}}</div>
+                                        <div class="uk-margin-large-left uk-margin-bottom">* {{user_log.detail}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

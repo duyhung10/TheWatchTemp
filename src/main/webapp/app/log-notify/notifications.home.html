@@ -1,0 +1,200 @@
+<div id="page_content">
+    <div id="page_content_inner">
+        <div data-uk-sticky="{ top: 48, media: 960 }" style="margin-bottom: 24px">
+            <div class="md-card">
+                <div class="md-card-content">
+                    <div class="uk-grid">
+                        <div class="uk-width-medium-7-10">
+                            <div class="heading_a uk-text-upper" style="background-color: white" data-translate="inventory.logs.myNotification"></div>
+                        </div>
+                        <div class="uk-width-medium-3-10">
+                            <div class="uk-float-right">
+                                <input type="checkbox" ng-change="handleGroupByDate(groupByDateFlag)" ng-init='groupByDateFlag = true' name="groupByDateFlag" id="groupByDateFlag" icheck ng-model="groupByDateFlag" />
+                                &nbsp;&nbsp;<label data-translate="inventory.logs.groupByDate"></label>
+                                <span class="md-input-bar "></span>
+                                &nbsp;&nbsp;
+                                <span><input type="checkbox" ng-change="handleViewAll(viewAllFlag)" name="viewAllFlag" id="viewAllFlag" icheck ng-model="viewAllFlag" /></span>
+                                &nbsp;&nbsp;<label data-translate="inventory.logs.viewAll"></label>
+                                <span class="md-input-bar "></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW BY DATE -->
+        <div ng-show="viewByGroup" class="uk-grid uk-grid-width-large-1-1 uk-grid-width-medium-1-1 uk-grid-medium hierarchical_show" data-uk-grid-margin hierarchical-show>
+            <div ng-class="$index == 0?'':'uk-margin-medium-top'" ng-repeat="notification in notificationData">
+                <div class="md-card">
+                    <div class="md-card-toolbar">
+                        <div class="md-card-toolbar-actions">
+                            <card-toggle></card-toggle>
+                        </div>
+                        <h3 class="uk-width-medium-9-10 md-card-toolbar-heading-text uk-container-center">
+                            <div class="uk-text-bold uk-text-center">{{notification.dateDisplay}}</div>
+                        </h3>
+                    </div>
+                    <div class="md-card-content uk-padding-remove">
+                        <div ng-repeat="notify_data in notification.data"
+                             ng-class="notify_data.read?'':'notification-unread'"
+                             ng-style="{'border-bottom-width':($index == notification.data.length -1)?'0px':'1px'}"
+                             style="border-bottom:1px solid rgba(0,0,0,.12);">
+                            <div class="uk-grid uk-margin-remove" ng-show="!notify_data.isHide">
+                                <div class="uk-width-medium-1-10 uk-vertical-align pointerMouse" ng-click="goToNotification(notify_data)">
+                                    <img ng-if="!notify_data.userAvatar" class="uk-border-circle uk-vertical-align-middle" ng-src="{{avatarImg}}" alt="" width="50" height="50"/>
+                                    <img ng-if="notify_data.userAvatar" class="uk-border-circle uk-vertical-align-middle" ng-src="data:image/*;base64,{{notify_data.userAvatar}}" alt="user avatar" width="50" height="50"/>
+                                </div>
+                                <div class="uk-width-medium-9-10 uk-vertical-align uk-margin uk-padding-remove">
+                                    <div class="uk-vertical-align-middle uk-width-1-1">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-medium-9-10 pointerMouse" ng-click="goToNotification(notify_data)">
+                                                <div class="uk-margin-small-left" ng-bind-html="notify_data.content"></div>
+                                                <div class="uk-margin-small-left uk-margin-small-top">{{notify_data.timeString}}</div>
+                                            </div>
+                                            <div class="uk-width-medium-1-10">
+                                                <div class="uk-button-dropdown" data-uk-dropdown="{pos:'bottom-right', mode: 'click'}">
+                                                    <a class="uk-icon-hover uk-icon-ellipsis-h uk-icon-small js-uk-prevent" title="{{hideNotificationTitle | translate}}"></a>
+                                                    <div class="uk-dropdown uk-dropdown-small">
+                                                        <ul class="uk-nav uk-nav-dropdown">
+                                                            <li><a ng-click="hideNotification(notify_data.id, notify_data)" class="js-uk-prevent" data-translate="inventory.logs.hideNotification"></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin-small-top">
+                                                    <!--<a ng-show="!notify_data.read" ng-click="markAsRead(notify_data.id, notify_data)" class="uk-icon-hover uk-icon-check-circle uk-icon-small js-uk-prevent" title="{{markAsReadTitle | translate}}"></a>-->
+                                                    <!--<a ng-show="notify_data.read" class="uk-icon-hover uk-icon-check-circle uk-icon-small js-uk-prevent uk-text-success" title="{{seenTitle | translate}}"></a>-->
+                                                    <div class="uk-margin-small-top">
+                                                        <a ng-show="!notify_data.read"
+                                                           ng-mouseenter="notify_data.markAsReadEnter = true"
+                                                           ng-mouseleave="notify_data.markAsReadEnter = false"
+                                                           ng-class="notify_data.markAsReadEnter ? 'uk-text-success' : ''"
+                                                           ng-click="markAsRead(notify_data.id, notify_data)"
+                                                           class="uk-icon-hover uk-icon-check-circle uk-icon-small js-uk-prevent"
+                                                           title="{{markAsReadTitle | translate}}"></a>
+                                                        <a ng-show="notify_data.read"
+                                                           ng-mouseenter="notify_data.markAsUnReadEnter = true"
+                                                           ng-mouseleave="notify_data.markAsUnReadEnter = false"
+                                                           ng-class="notify_data.markAsUnReadEnter ? 'uk-text-warning' : ''"
+                                                           ng-click="markAsUnRead(notify_data.id, notify_data)"
+                                                           class="uk-icon-hover uk-icon-circle-o uk-icon-small js-uk-prevent"
+                                                           title="{{markAsUnReadTitle | translate}}"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<hr ng-show="$index < notification.data.length - 1" class="uk-margin-remove"/>-->
+                            <div class="uk-grid uk-margin-remove" ng-show="notify_data.isHide" style="height: 70px">
+                                <div class="uk-width-medium-1-10"></div>
+
+                                <div class="uk-width-medium-9-10 heading_c uk-vertical-align uk-margin uk-padding-remove">
+                                    <div class="uk-vertical-align-middle">
+                                        <span data-translate="inventory.logs.hided"></span>
+                                        <span><a class="uk-margin-left" ng-click="notify_data.isHide = false"><span data-translate="inventory.logs.unHide"></span></a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="viewByGroup && !noMoreItemRemain" class="md-card">
+            <!-- Show More -->
+            <div class="md-card-footer" style="border-top:1px solid rgba(0,0,0,.12);">
+                <div ng-show="showMoreNotify" class="uk-margin-top uk-margin-small-bottom uk-text-center">
+                    <md-preloader stroke-width="6" width="32" height="32"></md-preloader>
+                </div>
+                <div class="uk-text-center">
+                    <a ng-class="showMoreNotify?'disabled':''" ng-click="showMoreNotifications()" class="md-btn md-btn-flat md-btn-block md-btn-flat-primary js-uk-prevent uk-padding"><span data-translate="inventory.logs.showMore"></span></a>
+                </div>
+            </div>
+            <!-- End Show More -->
+        </div>
+        <!-- END VIEW BY DATE -->
+
+        <!-- VIEW ALL -->
+        <div ng-show="!viewByGroup" class="uk-grid uk-grid-width-large-1-1 uk-grid-width-medium-1-1 uk-grid-medium hierarchical_show" data-uk-grid-margin hierarchical-show>
+            <div class="uk-margin">
+                <div class="md-card">
+                    <div class="md-card-content uk-padding-remove">
+                        <div ng-repeat="notification in notifications"
+                             ng-class="notification.read?'':'notification-unread'"
+                             ng-style="{'border-bottom-width':($index == notifications.length -1)?'0px':'1px'}"
+                             style="border-bottom:1px solid rgba(0,0,0,.12);">
+                            <div class="uk-grid uk-margin-remove" ng-show="!notification.isHide">
+                                <div class="uk-width-medium-1-10 uk-vertical-align pointerMouse" ng-click="goToNotification(notification)">
+                                    <img ng-if="!notification.userAvatar" class="uk-border-circle uk-vertical-align-middle" ng-src="{{avatarImg}}" alt="" width="50" height="50"/>
+                                    <img ng-if="notification.userAvatar" class="uk-border-circle uk-vertical-align-middle" ng-src="data:image/*;base64,{{notification.userAvatar}}" alt="user avatar" width="50" height="50"/>
+                                </div>
+                                <div class="uk-width-medium-9-10 uk-vertical-align uk-margin uk-padding-remove">
+                                    <div class="uk-vertical-align-middle uk-width-1-1">
+                                        <div class="uk-grid">
+                                            <div class="uk-width-medium-9-10 pointerMouse" ng-click="goToNotification(notification)">
+                                                <div class="uk-margin-small-left" ng-bind-html="notification.content"></div>
+                                                <div class="uk-margin-small-left uk-margin-small-top">{{notification.timeString}}</div>
+                                            </div>
+                                            <div class="uk-width-medium-1-10">
+                                                <div class="uk-button-dropdown" data-uk-dropdown="{pos:'bottom-right', mode: 'click'}">
+                                                    <a class="uk-icon-hover uk-icon-ellipsis-h uk-icon-small js-uk-prevent" title="{{hideNotificationTitle | translate}}"></a>
+                                                    <div class="uk-dropdown uk-dropdown-small">
+                                                        <ul class="uk-nav uk-nav-dropdown">
+                                                            <li><a ng-click="hideNotification(notification.id, notification)" class="js-uk-prevent" data-translate="inventory.logs.hideNotification"></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin-small-top">
+                                                    <a ng-show="!notification.read"
+                                                       ng-mouseenter="notification.markAsReadEnter = true"
+                                                       ng-mouseleave="notification.markAsReadEnter = false"
+                                                       ng-class="notification.markAsReadEnter ? 'uk-text-success' : ''"
+                                                       ng-click="markAsRead(notification.id, notification)"
+                                                       class="uk-icon-hover uk-icon-check-circle uk-icon-small js-uk-prevent"
+                                                       title="{{markAsReadTitle | translate}}"></a>
+                                                    <a ng-show="notification.read"
+                                                       ng-mouseenter="notification.markAsUnReadEnter = true"
+                                                       ng-mouseleave="notification.markAsUnReadEnter = false"
+                                                       ng-class="notification.markAsUnReadEnter ? 'uk-text-warning' : ''"
+                                                       ng-click="markAsUnRead(notification.id, notification)"
+                                                       class="uk-icon-hover uk-icon-circle-o uk-icon-small js-uk-prevent"
+                                                       title="{{markAsUnReadTitle | translate}}"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<hr ng-show="$index < notifications.length - 1"/>-->
+                            <div class="uk-grid uk-margin-remove" ng-show="notification.isHide" style="height: 70px">
+                                <div class="uk-width-medium-1-10"></div>
+
+                                <div class="uk-width-medium-9-10 heading_c uk-vertical-align uk-margin uk-padding-remove">
+                                    <div class="uk-vertical-align-middle">
+                                        <span data-translate="inventory.logs.hided"></span>
+                                        <span><a class="uk-margin-left" ng-click="notification.isHide = false"><span data-translate="inventory.logs.unHide"></span></a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Show More -->
+                    <div ng-show="!noMoreItemRemain" class="md-card-footer" style="border-top:1px solid rgba(0,0,0,.12);">
+                        <div ng-show="showMoreNotify" class="uk-margin-top uk-margin-small-bottom uk-text-center">
+                            <md-preloader stroke-width="6" width="32" height="32"></md-preloader>
+                        </div>
+                        <div class="uk-text-center">
+                            <a ng-class="showMoreNotify?'disabled':''" ng-click="showMoreNotifications()" class="md-btn md-btn-flat md-btn-block md-btn-flat-primary js-uk-prevent uk-padding"><span data-translate="inventory.logs.showMore"></span></a>
+                        </div>
+                    </div>
+                    <!-- End Show More -->
+                </div>
+            </div>
+
+        </div>
+        <!-- VIEW ALL -->
+    </div>
+</div>

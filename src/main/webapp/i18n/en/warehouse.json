@@ -1,0 +1,52 @@
+{
+  "warehouse": {
+    "common":{
+      "Configuration": "Configuration",
+      "WarehouseManagement":"Warehouse Management",
+      "Warehouse":"Warehouses",
+      "Route": "Route",
+      "Create": "New Warehouse",
+      "Edit": "Edit Warehouse",
+      "Detail": "Warehouse Detail"
+    },
+
+    "detail": {
+      "Name": "Warehouse Name",
+      "ShortName": "Short Name",
+      "Address": "Address",
+      "Created": "Created",
+      "CreatedBy": "CreatedBy",
+      "Updated": "Updated",
+      "UpdatedBy": "UpdatedBy",
+      "Config": "Warehouse Configuration",
+      "IncomingShipment": "Incoming Shipments",
+      "OutgoingShipment": "Outgoing Shippings",
+      "IncomingOneStep": "1 Step: Store directly to warehouse",
+      "IncomingTwoSteps": "2 Steps: Unload in input location then go to stock",
+      "IncomingThreeSteps": "3 Steps: Unload in input location, go through a quality control before being admitted in stock",
+      "OutgoingShipOnly": "Ship Only: Ship directly from stock",
+      "OutgoingPickShip": "Pick + Ship: Bring goods to output location before shipping",
+      "OutgoingPickPackShip": "Pick + Pack + Ship: Make packages into a dedicated location, then bring them to the output location for shipping"
+    },
+
+    "column": {
+      "Code":"Code",
+      "Name":"Name",
+      "LocationStock":"Location Stock",
+      "Address":"Address",
+      "Status":"Status",
+      "Created":"Created",
+      "Updated":"Updated",
+      "CreatedBy":"Created by",
+      "UpdatedBy":"Updated by"
+    },
+
+    "messages": {
+      "errorCreateWarehouse":"Unable to create new warehouse. Please check your data and try again.",
+      "required":"This field is required.",
+      "maxLengthRule":"This field is too long. It should have maximum 200 characters.",
+      "maxLengthShortNameRule":"This field must have maximum 5 characters.",
+      "wrongPatternRule":"This field should not have special characters and white space."
+    }
+  }
+}

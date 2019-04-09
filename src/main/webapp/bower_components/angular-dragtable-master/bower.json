@@ -1,0 +1,31 @@
+{
+  "name": "angular-dragtable",
+  "version": "1.0.10",
+  "homepage": "https://github.com/maliMirkec/angular-dragtable",
+  "authors": [
+    "Silvestar Bistrović <malimirkeccita@gmail.com>"
+  ],
+  "description": "Directive that allows reorder of table columns.",
+  "main": "angular-dragtable.js",
+  "keywords": [
+    "angular",
+    "drag",
+    "drop",
+    "table"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "bootstrap": "v4.0.0-alpha.6"
+  }
+}

@@ -1,0 +1,237 @@
+/* pricing tables */
+.pricing_table {
+    &.pricing_table_a {
+        text-align: center;
+        .pricing_table_plan {
+            font-size: 18px;
+            font-weight: 400;
+            padding: 16px 0;
+            margin-bottom: 16px;
+        }
+        .pricing_table_price {
+            padding: 8px 0 0;
+            font-size: 48px;
+            margin-bottom: 24px;
+            .currency {
+                vertical-align: top;
+                font-size: 24px;
+                padding: 0 4px;
+            }
+            .period {
+                font-size: 14px;
+                padding: 4px;
+                color: @text_muted;
+                display: block;
+            }
+        }
+        .pricing_table_features {
+            .reset_list();
+            li {
+                font-size: 16px;
+                padding: 8px 0;
+            }
+        }
+        .pricing_table_select {
+            padding: 32px 0;
+        }
+    }
+    &.pricing_table_b {
+        text-align: center;
+        .pricing_table_plan {
+            font-size: 16px;
+            font-weight: 400;
+            padding: 16px 0;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .pricing_table_price {
+            padding: 8px 0 0;
+            font-size: 48px;
+            margin-bottom: 24px;
+            .currency {
+                vertical-align: top;
+                font-size: 24px;
+                padding: 0 4px;
+            }
+            .period {
+                font-size: 14px;
+                padding: 4px;
+                color: @text_muted;
+                display: block;
+            }
+        }
+        .pricing_table_features {
+            .reset_list();
+            li {
+                font-size: 16px;
+                padding: 8px 0;
+            }
+        }
+        .pricing_table_select {
+            padding: 32px 0;
+        }
+    }
+    &.pricing_table_c {
+        text-align: center;
+        .pricing_table_plan {
+            font-size: 16px;
+            font-weight: 400;
+            padding: 16px 0;
+            margin-bottom: 8px;
+        }
+        .pricing_table_price {
+            padding: 8px 0 0;
+            font-size: 48px;
+            margin-bottom: 24px;
+            .currency {
+                vertical-align: top;
+                font-size: 24px;
+                padding: 0 4px;
+            }
+            .period {
+                font-size: 14px;
+                color: @text_muted;
+                vertical-align: 0;
+                padding-left: 4px;
+            }
+        }
+        .pricing_table_features {
+            .reset_list();
+            li {
+                font-size: 16px;
+                padding: 8px 0;
+            }
+        }
+        .pricing_table_select {
+            padding: 32px 0;
+        }
+    }
+}
+
+.pricing_table_v2 {
+    &.pricing_table_v2_a {
+        text-align: center;
+        .pricing_table_plan {
+            font-size: 18px;
+            font-weight: 400;
+            padding: 24px 0;
+        }
+        .pricing_table_price {
+            padding: 8px 0 0;
+            font-size: 48px;
+            margin: 0 8px 24px;
+            color: @white;
+            background: @md-color-teal-300;
+            .currency {
+                vertical-align: top;
+                font-size: 24px;
+                padding: 0 4px;
+            }
+            .period {
+                font-size: 14px;
+                padding: 4px;
+                display: block;
+            }
+        }
+        .pricing_table_features {
+            .reset_list();
+            li {
+                font-size: 16px;
+                padding: 8px 0;
+            }
+        }
+        .pricing_table_select {
+            padding: 32px 0;
+        }
+        .md-btn {
+            background: @md-color-teal-300;
+            color: @white;
+        }
+    }
+    &.pricing_table_v2_b {
+        text-align: center;
+        .pricing_table_plan {
+            font-size: 18px;
+            font-weight: 400;
+            padding: 16px 0;
+            background: @md-color-red-400;
+            color: @white;
+        }
+        .pricing_table_price {
+            padding: 8px 0;
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 0 48px;
+            color: @white;
+            background: @md-color-red-600;
+            .currency {
+                vertical-align: top;
+                font-size: 24px;
+                padding: 0 4px;
+            }
+            .period {
+                font-size: 14px;
+                padding: 4px;
+                display: block;
+                font-weight: 400;
+            }
+        }
+        .pricing_table_features {
+            .reset_list();
+            li {
+                font-size: 16px;
+                padding: 8px 0;
+                &:nth-child(odd) {
+                    background: @md-color-grey-100;
+                }
+            }
+        }
+        .pricing_table_select {
+            padding: 32px 0;
+        }
+        .md-btn {
+            background: @md-color-red-400;
+            color: @white;
+        }
+    }
+    &.pricing_table_v2_c {
+        text-align: center;
+        .pricing_table_plan {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0 32px 24px;
+            padding: 16px 0;
+            border-bottom: 1px solid @border_color;
+            text-transform: uppercase;
+            color: @text_secondary_color;
+        }
+        .pricing_table_price {
+            padding: 8px 0;
+            font-size: 48px;
+            margin: 0 0 24px;
+            .currency {
+                vertical-align: top;
+                font-size: 24px;
+                padding: 0 4px;
+            }
+            .period {
+                font-size: 14px;
+                padding: 4px;
+                font-weight: 400;
+                color: @text_muted;
+            }
+        }
+        .pricing_table_features {
+            .reset_list();
+            li {
+                font-size: 14px;
+                padding: 12px 0;
+                margin: 0 32px;
+                border-bottom: 1px solid @border_color;
+            }
+        }
+        .pricing_table_select {
+            padding: 32px 0;
+        }
+    }
+}

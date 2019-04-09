@@ -1,0 +1,150 @@
+<div id="page_content">
+    <div id="page_heading" data-uk-sticky="{ top: 48, media: 960 }">
+        <div class="heading_actions action-padding-top">
+            <!--<a href="javascript:void(0)" data-uk-tooltip="{pos:'bottom'}" title="Print"><i class="md-icon material-icons">&#xE8AD;</i></a>-->
+            <div data-uk-dropdown="{mode:'click'}">
+                <i class="md-icon material-icons">&#xE5D4;</i>
+                <div class="uk-dropdown uk-dropdown-small">
+                    <ul class="uk-nav">
+                        <li><a href="javascript:void(0)" ng-click="deleteStudent()">{{button.delete|translate}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <span class="route-header">
+            <a ui-sref="students">{{titlePage.home | translate}}</a>
+            <span> / </span><a ui-sref="students">{{titlePage.setting | translate}}</a>
+            <span> / </span><a ui-sref="students">{{titlePage.student_permision | translate}}</a>
+            <span> / </span><a ui-sref="students">{{pageTitle | translate}}</a>
+            <span> / {{student.email}}</span>
+        </span>
+        <br/>
+        <div class="uk-margin-small-top">
+            <a ui-sref="students-edit({studentId: student.id })" class="md-btn md-btn-small"><span
+                    class="uk-text-bold"> {{button.edit|translate}}</span></a>
+            <a ui-sref="students-create" class="md-btn md-btn-primary md-btn-small"><span class="uk-text-bold">{{button.create | translate}}</span></a>
+        </div>
+    </div>
+
+    <div id="page_content_inner">
+        <jhi-alert></jhi-alert>
+        <div class="uk-grid data-uk-grid-margin">
+            <div class="uk-width-medium-1-1">
+                <div class="md-card">
+                    <div class="md-card-content">
+
+                        <!--<div id="activateBtn" class="md-btn-group float-right">
+                            <a ng-mouseenter="mouseHoverStatus()" ng-mouseleave="mouseLeaveStatus()"
+                               class="fixed-size md-btn md-btn-small md-btn-wave-light md-btn-icon md-bg-grey-100"
+                               href="javascript:void(0)">
+                                <div style="float:left;display:inline-block;">
+                                    <i class="uk-icon-archive uk-icon-medium icon-padding-top"></i>
+                                </div>
+                                <div style="margin-left:30px;">
+                                    <p class="line-big text-padding-top uk-text-bold">
+                                        <br/>
+                                        <span id="activeBtn" ng-class="activeClass">{{status}}</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>-->
+
+                        <activate model="student"
+                                  activate-service="CbxActivate.activateService"
+                                  deactivate-service="CbxActivate.deactivateService"
+                        ></activate>
+
+                        <div class="uk-grid" data-uk-grid-margin="">
+                            <div class="uk-width-medium-2-10">
+                                <!--<div class="student_heading_avatar" data-provides="fileinput"-->
+                                     <!--ng-mouseenter="student.mouseEnter = true"-->
+                                     <!--ng-mouseleave="student.mouseEnter = false" >-->
+
+                                    <!--<img ng-if="student.userAvatar" class="uk-border-circle" ng-src="data:image/*;base64,{{student.userAvatar}}" alt="user avatar" width="200" height="200"/>-->
+                                    <!--<img ng-if="!student.userAvatar" class="uk-border-circle" ng-src="assets/img/avatars/avatar.jpg" alt="user avatar" width="200" height="200"/>-->
+
+                                    <!--<div class="user_avatar_controls">-->
+                                            <!--<span class="btn-file uk-form-file" title="Maximum size: 64K">-->
+                                                <!--<span class="fileinput-new"><i class="material-icons">&#xE2C6;</i></span>-->
+                                                <!--<input id="user-input-form-file" type="file" accept=".png,.jpg,.jpeg,.gif" ng-model="file_upload.user">-->
+                                            <!--</span>-->
+                                        <!--<a ng-show="user.mouseEnter && user.userAvatar" ng-click="deleteUserAvatar()" class="btn-file fileinput-exists js-uk-prevent" title="Delete"><i class="material-icons">&#xE5CD;</i></a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="uk-width-medium-4-10">
+                                <div class="uk-grid" data-uk-grid-margin="">
+                                    <div class="uk-width-medium-1-1">
+                                        <label class="label-bold">{{detail.Name|translate}}</label>
+                                        <input readonly class="md-input ng-isolate-scope md-input-processed" type="text" ng-model="student.name" md-input />
+                                    </div>
+
+                                    <div class="uk-width-medium-1-1">
+                                        <label class="label-bold" for="email">{{detail.Email|translate}}</label>
+                                        <input readonly data-parsley-type-message={{email_msg}} data-parsley-required-message={{required_msg}} ng-model="student.email" id="email" type="email" name="email" data-parsley-trigger="change" required="" class="md-input ng-isolate-scope md-input-processed" md-input="">
+                                    </div>
+                                    <div class="uk-width-medium-1-1">
+                                        <label class="label-bold">{{detail.Created|translate}}</label>
+                                        <input value="{{student.created | date: 'dd-MM-yyyy hh:mm:ss'}}" readonly class="md-input ng-isolate-scope md-input-processed" md-input="">
+                                        <span class="md-input-bar "></span>
+                                    </div>
+                                    <div class="uk-width-medium-1-1">
+                                        <label class="label-bold">{{detail.CreatedBy|translate}}</label>
+                                        <input ng-model="student.createdBy" readonly type="text" class="md-input ng-isolate-scope md-input-processed" md-input="">
+                                        <span class="md-input-bar "></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="uk-width-medium-4-10">
+                                <div class="uk-grid" data-uk-grid-margin="">
+                                    <div class="uk-width-medium-1-1">
+                                        <div class="parsley-row">
+                                            <label class="label-bold" for="address">{{detail.Address|translate}}</label>
+                                            <input id="address" ng-model="student.address" readonly type="text" name="address" type="text" class="md-input ng-isolate-scope md-input-processed" md-input="">
+                                            <span class="md-input-bar "></span>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1">
+                                        <div class="parsley-row">
+                                            <label class="label-bold" for="phone">{{detail.Phone|translate}}</label>
+                                            <input id="phone" ng-model="student.phone" readonly type="text" name="phone" type="text" class="md-input ng-isolate-scope md-input-processed" md-input="">
+                                            <span class="md-input-bar "></span>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1">
+                                        <label class="label-bold">{{detail.Updated|translate}}</label>
+                                        <input value="{{student.updated | date: 'dd-MM-yyyy hh:mm:ss'}}" readonly class="md-input ng-isolate-scope md-input-processed" md-input="">
+                                        <span class="md-input-bar "></span>
+                                    </div>
+                                    <div class="uk-width-medium-1-1">
+                                        <label class="label-bold">{{detail.UpdatedBy|translate}}</label>
+                                        <input ng-model="student.updatedBy" readonly type="text" class="md-input ng-isolate-scope md-input-processed" md-input="">
+                                        <span class="md-input-bar "></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="uk-width-medium-1-3">
+                <div class="md-card">
+                    <div class="md-card-content">
+                        <h3 class="heading_c uk-margin-medium-bottom">Other settings</h3>
+                        <div class="uk-width-medium-1-2">
+                            <div class="uk-form-row uk-text-center">
+                                <input type="checkbox" ng-disabled="true" checked id="user_edit_active" ui-switch ng-model="user.active" />
+                                <label for="user_edit_active" class="inline-label">User Active</label>
+                            </div>
+                        </div>
+                        &lt;!&ndash;<hr class="md-hr">&ndash;&gt;
+
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+</div>

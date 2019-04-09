@@ -1,0 +1,56 @@
+{
+  "global": {
+    "login": "Đăng nhập",
+    "messages":{
+      "validateFailed":"Validate Không Thành Công",
+      "duplicateDetail":"UID/Serial Number hoặc Package bị trùng. ",
+      "success":"Thành công",
+      "failed":"Thất bại",
+      "filterList":"Bộ lọc",
+      "favorites":"Ưu thích",
+      "groups":"Nhóm",
+      "error":{
+        "authentication":"<strong>Đăng nhập không thành công.</strong> Vui lòng kiểm tra thông tin và thử lại."
+      },
+      "information":"Thông Báo",
+      "isReserved":"Giao dịch này đã có Reserved. Un-Reserved để thực hiện thay đổi"
+    },
+    "common":{
+      "active":"Active",
+      "archived":"Archived",
+      "restore":"Restore",
+      "archive":"Archive",
+      "confirmValidation":"Confirm Validation",
+      "apply":"Apply",
+      "cancel":"Thoát",
+      "import":"Nhập",
+      "chooseFile":"Chọn file...",
+      "yes":"Đồng ý",
+      "no":"Không",
+      "export":"Xuất",
+      "template":"Mẫu",
+      "bigFile":"Tổng dung lượng lớn hơn 20MB",
+      "permission": "Phân quyền.",
+      "permissionMsg":"Bạn chưa được phân quyền, vui lòng liên hệ với admin.",
+      "applyCondition":"Áp dụng",
+      "applyMoreCondition":"Thêm điều kiện",
+      "equal":" bằng ",
+      "greatThan":" lớn hơn ",
+      "greatThanOrEqual":" lớn hơn hoặc bằng",
+      "lessThan":" nhỏ hơn ",
+      "lessThanOrEqual":" nhở hơn hoặc bằng",
+      "contain":" chứa ",
+      "beginWith":" bắt đầu bằng ",
+      "notEqual":" không bằng ",
+      "endWith": " kết thúc bằng ",
+      "notContain": " không chứa ",
+      "inList":" thuộc trong ",
+      "notInList":" không thuộc trong ",
+      "saveFavorite":"Lưu bộ lọc hiện tại",
+      "isDefault":"Đặt làm mặc định",
+      "isPublic":"Công khai",
+      "isNull":" không có giá trị",
+      "isNotNull":" có giá trị "
+    }
+  }
+}

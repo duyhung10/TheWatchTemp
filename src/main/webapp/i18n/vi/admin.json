@@ -1,0 +1,101 @@
+{
+  "admin": {
+    "user" : {
+      "create" : "Người dùng mới",
+      "list": "Users",
+      "detail": "Chi tiết người dùng",
+      "edit": "Chỉnh sửa người dùng",
+      "column": {
+        "Email":"Email",
+        "Password":"Mật khẩu",
+        "ConfirmPassword":"Xác nhận mật khẩu",
+        "FirstName":"Tên đầu",
+        "LastName":"Tên cuối",
+        "Address": "Địa chỉ",
+        "Phone": "Số điện thoại",
+        "Position": "Vị trí",
+        "Roles": "Vai trò",
+        "Status":"Trạng thái",
+        "Created":"Ngày tạo",
+        "Updated":"Ngày cập nhật",
+        "CreatedBy":"Tạo bởi",
+        "UpdatedBy":"Cập nhật bởi"
+      }
+    },
+    "student" : {
+      "create" : "Sinh viên mới",
+      "list": "Students",
+      "detail": "Chi tiết sinh viên",
+      "edit": "Chỉnh sửa sinh viên",
+      "column": {
+        "Email":"Email",
+        "Password":"Mật khẩu",
+        "ConfirmPassword":"Xác nhận mật khẩu",
+        "FirstName":"Tên đầu",
+        "LastName":"Tên cuối",
+        "Name" : "Họ tên",
+        "Address": "Địa chỉ",
+        "Phone": "Số điện thoại",
+        "Position": "Vị trí",
+        "Roles": "Vai trò",
+        "Status":"Trạng thái",
+        "Created":"Ngày tạo",
+        "Updated":"Ngày cập nhật",
+        "CreatedBy":"Tạo bởi",
+        "UpdatedBy":"Cập nhật bởi"
+      }
+    },
+    "privilege" : {
+      "create" : "Quyền mới",
+      "list": "Danh sách quyền",
+      "detail": "Chi tiết quyền",
+      "edit": "Chỉnh sửa quyền"
+    },
+    "role" : {
+      "create" : "Vai trò mới",
+      "list": "Danh sách vai trò",
+      "detail": "Chi tiết vai trò",
+      "edit": "Chỉnh sửa vai trò",
+      "column": {
+        "Name":"Tên",
+        "Description":"Mô tả",
+        "AvailablePrivileges":"Các quyền có sẵn",
+        "SelectPrivileges":"Các quyền đã chọn",
+        "FilterTree":"Lọc kết quả...",
+        "Created":"Ngày tạo",
+        "Updated":"Ngày cập nhật",
+        "CreatedBy":"Tạo bởi",
+        "UpdatedBy":"Cập nhật bởi"
+      }
+    },
+    "menu":{
+      "setting": "Cài đặt",
+      "generalSetting": "Cài đặt cơ bản",
+      "userPermision": "Người dùng và Quyền",
+      "users":"Người dùng",
+      "roles":"Vai trò",
+      "privileges":"Quyền",
+      "uoms":"Đơn vị đo lường",
+      "configuration":"Cấu hình"
+    },
+    "pagination": {
+      "selectPage":"Chọn trang",
+      "pageSize":"Số kết quả một trang"
+    },
+    "messages": {
+      "errorCreateUser":"Không thể tạo người dùng. Vui lòng kiểm tra thông tin và thử lại.",
+      "errorCreateRole":"Không thể tạo vai trò. Vui lòng kiểm tra thông tin và thử lại.",
+      "errorCreatePrivilege":"Không thể tạo quyền. Vui lòng kiểm tra thông tin và thử lại.",
+      "errorUpdateUser":"Không thể cập nhật người dùng. Vui lòng kiểm tra thông tin và thử lại.",
+      "errorUpdateRole":"Không thể cập nhật vai trò. Vui lòng kiểm tra thông tin và thử lại.",
+      "errorUpdatePrivilege":"Không thể cập nhật quyền. Vui lòng kiểm tra thông tin và thử lại.",
+      "errorDeleteUser":"Không thể xóa người dùng. Vui lòng kiểm tra thông tin và thử lại.",
+      "errorDeleteRole":"Không thể xóa vai trò. Vui lòng kiểm tra thông tin và thử lại.",
+      "errorDeletePrivilege":"Không thể xóa quyền. Vui lòng kiểm tra thông tin và thử lại.",
+      "invalidEmail":"Email không hợp lệ.",
+      "required":"Trường này là bắt buôc.",
+      "confirmPassword":"Mật khẩu xác nhận không khớp.",
+      "passwordPattern":"Mật khẩu cần ít nhất 6 kí tự."
+    }
+  }
+}

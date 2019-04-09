@@ -1,0 +1,118 @@
+{
+  "error": {
+    "userAndPermission":{
+      "emailexists":"This email is in used, please use another email",
+      "roleHasNoPrivilege":"Please select at least one privilege for creating role.",
+      "userHasRole":"This user have role already. Can not delete.",
+      "roleHasPrivilege":"This role have privilege already. Can not delete.",
+      "roleExist": "This role name is in used, please use another name",
+      "imageIsTooLarge": "Image size is too large!"
+    },
+    "permission":{
+      "canNotDeleteSystemObject":"Can not delete system object.",
+      "canNotPerform":"You don't have permission to perform this action."
+    },
+    "common":{
+      "deleteError": "Can not delete records with id: ",
+      "maxLengthRule":"This field is too long. It should have maximum 255 characters.",
+      "referenceError":"Can not delete this record. It has been referenced by another."
+    },
+    "warehouse":{
+      "nameExist":"Warehouse name is already exist.",
+      "codeExist":"Warehouse code is already exist.",
+      "referenced": "Can not delete this warehouse. It has been referenced by route."
+    },
+    "uom":{
+      "nameExist":"UOM name is already exist."
+    },
+    "operation-type":{
+      "nameExist":"Operation type name is already exist.",
+      "codeExist":"Operation type code is already exist.",
+      "transfer":"Operation type existed in a transfer.",
+      "valuation":"Operation type existed in a valuation report template.",
+      "valuationOrTransfer":"Operation type existed in transfer or valuation report template."
+    },
+    "sequence": {
+      "nameExist": "Sequence name is already exist.",
+      "codeExist": "Sequence code is already exist.",
+      "referenced": "Can not delete this sequence. It has been referenced by operation type.",
+      "hasOperationTypeActive": "Can not archive this sequence. It has been referenced by an active operation type."
+    },
+    "uomCategory":{
+      "nameExist":"UOM Category name is already exist."
+    },
+    "locaion": {
+      "delete": "Cannot delete Location which is applied on transfer!",
+      "canNotDeleteUsedLocation": "Can not delete! This location is in used!",
+      "canNotArchiveUsedLocation": "Can not archive! This location is in used!"
+    },
+    "transfer": {
+      "dateCondition":"The End Date must be greater/equals than the Begin Date",
+      "canNotCreateDuplicateItem":"You have duplicate items. Please check before create.",
+      "canNotDeleteDoneTransfer":"Can not delete this transfer because it contains a stock move that has been set to 'Done'.",
+      "canNotDeleteTransferHavingOrigin":"Can not delete this transfer because they are related to another one.",
+      "somethingWrong":"Something wrong, please check log for more information or contact administrator.",
+      "errorDeleteNotExist":"You cannot delete the selected transfer(s) that do not exist",
+      "errorDeleteDone":"You cannot delete the selected transfer(s) contains a stock move that has been set to 'Done'",
+      "errorDeleteHavingOrigin":"You cannot delete the selected transfer(s) because they are related to another one",
+      "constant_select_transfer":"the selected transfer(s)",
+      "transfer_is_delete":"This transfer was deleted!",
+      "done_not_equal_reserved": "Done quantity must equal reserved quantity or zero",
+      "duplicateUID":"Duplicate UID/Serial Number or Package in Detailed Operations",
+      "invalidState":"Giao dịch đã hoàn thành hoặc đang đợi giao dịch khác",
+      "transferCantChange":"Transfer has been done or cancelled",
+      "transferInProcessing":"Transfer is processing by another",
+      "validateFailed": "Something wrong in validating."
+    },
+    "adjustment": {
+      "adjustment_is_delete":"This inventory adjustment was deleted!"
+    },
+    "inventory": {
+      "inventoryNotFound": "Could not find this entity",
+      "duplicateProduct": "Have an Inventory adjustment inprogress!",
+      "startInventoryOfAllFailed":"Can not start Inventory Of All Products when exist other processing/validating inventory adjustment in this location.",
+      "startFailedByInventoryOfAll":"Can not start because exist processing/validating Inventory Of All Products in this location.",
+      "notFinish":"Exist another inventory adjustment for your products in this location.",
+      "importFileInvalid":"Import file template invalid.",
+      "deleteFinishAdjustment":"Can not delete finish inventory adjustment.",
+      "deleteValidateAdjustment":"Can not delete validate inventory adjustment.",
+      "deleteInprogressAdjustment":"Can not delete inprogress inventory adjustment.",
+      "importTemplateError":"Import file template is invalid.",
+      "importFileTooBig":"Import file too big. Can not preview. It can be import directly in transfer detail page.",
+      "usingOldTemplate":"Please download new template. And upload again.",
+      "isReserved": "This already exist in another reserved list",
+      "reservedPartAdjustment": "Can not start inventory. Have some item(s) be reserved. Please validated transfer reserved before start inventory",
+      "notDraft": "This Inventory Adjustment not in DRAFT status anymore. Please reload page and check log.",
+      "inDraft": "This Inventory Adjustment in DRAFT status. Please reload page and check log.",
+      "notInProgress": "This Inventory Adjustment not in IN PROGRESS status anymore. Please reload page and check log.",
+      "notValidate": "This Inventory Adjustment not in VALIDATE status anymore. Please reload page and check log"
+    },
+    "stockQuant": {
+      "beforeCreate" : {
+        "duplicateLotLocation" : "UnitID can not be stored at different locations. Please check your data.",
+        "duplicatePackageLocation":"Packages can not be stored at different locations. Please check your data."
+      }
+    },
+    "package" :{
+      "existedInStock":"Can't delete because quantity on hand more than 0.",
+      "existedInAdjustment":"Can't delete because this package in processing/validate adjustment.",
+      "packageNotFound":"Package not exist in system."
+    },
+    "lot" : {
+      "existedInStock":"Can't delete because quantity on hand more than 0",
+      "existedInAdjustment":"Can't delete because this package in processing/validate adjustment.",
+      "lotNotFound":"Unit Id/Serial not exist in system."
+    },
+    "location": {
+      "barcodeExist": "This barcode is existed in system."
+    },
+    "synchronize-report": {
+      "batchDeleteError": "Can't delete because report(s) are belong to another users. Please check again."
+    },
+    "scrap": {
+      "onlyScrapped":"You must select only scrapped",
+      "scrapReserved":"Please un-reserved before restore",
+      "scrapAdjustment":"Package is reserved in inventory adjustment"
+    }
+  }
+}

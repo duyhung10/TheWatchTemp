@@ -1,0 +1,193 @@
+<!--FILTER MODAL-->
+<div class="uk-modal" id="filter_modal">
+<div class="uk-modal-dialog" style="width: 65% !important;">
+    <div class="uk-modal-header" style="margin: 0 -24px 0px">
+        <span><span class="uk-modal-title" data-translate="global.messages.filterList"></span><a class="uk-modal-close" style="float: right;"><i class="material-icons">&#xE14C;</i></a></span>
+    </div>
+    <hr>
+    <div class="uk-grid">
+        <div class="uk-width-medium-2-6" ng-if="defaultFilter[modelAdFilter].length > 0">
+            <ul ng-repeat="df in defaultFilter[modelAdFilter]">
+                <input  type="checkbox" icheck ng-model="df.selected" ng-change="selectFilterGroup($index)"/>
+                <span>{{df.label}}</span>
+            </ul>
+        </div>
+        <div ng-class="filterClass[modelAdFilter]">
+            <div class="md-card no-space-top" ng-if="favoriteFilterList[modelAdFilter].length > 0">
+                <div class="md-card-toolbar" >
+                    <div class="md-card-toolbar-actions">
+                        <card-toggle></card-toggle>
+                    </div>
+                    <card-fullscreen-deactivate></card-fullscreen-deactivate>
+                    <div class="custom-h3" ><span data-translate="masterdata.common.favoriteFilter"></span><span>&nbsp;-&nbsp;{{defaultFavorite[modelAdFilter].name}}</span></div>
+                </div>
+                <div class="md-card-content no-space-above-below">
+                    <div class="uk-overflow-container uk-margin-bottom custom-overflow-horizontal custom-modal-size no-space-above-below">
+                        <div ng-repeat-start="cfg in favoriteFilterList[modelAdFilter]" >
+                            <div  ng-if="$index > 0" style="text-align: center"><h4 class="one" style="margin-bottom: 0px !important;"><span><b style="font-size: 15px;" data-translate="masterdata.common.and"></b></span></h4></div>
+                            <table  style="padding-left: 0px !important;">
+                                <thead></thead>
+                                <tbody>
+                                <tr ng-repeat-start="cf in cfg" class="custom-cell-no-space">
+                                    <td class="custom-cell-no-space" style="width: 5% !important;"></td>
+                                    <td class="custom-cell-no-space"><input  type="checkbox" icheck ng-model="cf.selected" ng-change="selectFilter()"/></td>
+                                    <td class="custom-cell-no-space" style="width: 90% !important;"><span ng-bind-html = "cf.label"></span></td>
+                                    <td class="custom-cell-no-space"><a  ng-if="defaultFavorite[modelAdFilter].userId == user.id" ng-click=removeFavoriteFilter($parent.$index,$index)><i class="md-icon material-icons">&#xE872;</i></a></td>
+                                <tr ng-if="$index < cfg.length -1" class="custom-cell-no-space"><td class="custom-cell-no-space"><b data-translate="masterdata.common.or"></b></td></tr>
+                                </tr>
+                                <tr ng-repeat-end></tr>
+                                </tbody>
+                            </table>
+                        </div><div ng-repeat-end></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md-card" style="margin-top: 10px !important;">
+                <div class="md-card-toolbar">
+                    <div class="md-card-toolbar-actions">
+                        <card-toggle></card-toggle>
+                    </div>
+                    <card-fullscreen-deactivate></card-fullscreen-deactivate>
+                    <h3 class="md-card-toolbar-heading-text label-bold" data-translate="masterdata.common.customFilters">
+                    </h3>
+                </div>
+                <div class="md-card-content no-space-above-below">
+                    <div class="uk-overflow-container uk-margin-bottom custom-overflow-horizontal custom-modal-size no-space-above-below">
+                        <div ng-repeat-start="cfg in customFilterList[modelAdFilter]" >
+                            <div  ng-if="$index > 0" style="text-align: center"><h4 class="one" style="margin-bottom: 0px !important;"><span><b style="font-size: 15px;" data-translate="masterdata.common.and"></b></span></h4></div>
+                            <table  style="padding-left: 0px !important;">
+                                <thead></thead>
+                                <tbody>
+                                <tr ng-repeat-start="cf in cfg" class="custom-cell-no-space">
+                                    <td class="custom-cell-no-space" style="width: 5% !important;"></td>
+                                    <td class="custom-cell-no-space"><input  type="checkbox" icheck ng-model="cf.selected" ng-change="selectFilter()"/></td>
+                                    <td class="custom-cell-no-space" style="width: 90% !important;"><span ng-bind-html = "cf.label"></span></td>
+                                    <td class="custom-cell-no-space"><a  ng-click=removeFilter($parent.$index,$index)><i class="md-icon material-icons">&#xE872;</i></a></td>
+                                <tr ng-if="$index < cfg.length -1" class="custom-cell-no-space"><td class="custom-cell-no-space"><b data-translate="masterdata.common.or"></b></td></tr>
+                                </tr>
+                                <tr ng-repeat-end></tr>
+                                </tbody>
+                            </table>
+                        </div><div ng-repeat-end></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md-card" style="margin-top: 10px !important;">
+                <div class="md-card-toolbar">
+                    <div class="md-card-toolbar-actions">
+                        <card-toggle></card-toggle>
+                    </div>
+                    <card-fullscreen-deactivate></card-fullscreen-deactivate>
+                    <h3 class="md-card-toolbar-heading-text label-bold" data-translate="masterdata.common.addCustomCondition">
+                    </h3>
+                </div>
+                <div class="md-card-content no-space-above-below">
+                    <div ng-repeat="cf in customFilters[modelAdFilter]" class="condition-box">
+                        <div ng-if="$index !=0" class="label-bold" style="text-align: center; padding-top: 5px !important;">Or</div>
+                        <div style="width: 92% !important;">
+                            <input type="text" placeholder="Select field" config="selectize_filed_config" options="fieldFilter[modelAdFilter]" ng-model="customFilters[modelAdFilter][$index].field" ng-change="selectFilterField($index)"  selectize>
+                        </div>
+
+                        <div style="display: inline-block !important; width: 92% !important;">
+                            <input type="text" placeholder="Operator" config="selectize_filed_config" options="operationFilter" ng-model="customFilters[modelAdFilter][$index].operator" ng-change="selectOperator($index)"   selectize>
+                        </div>
+                        <div class="remove-condition-box">
+                            <i class="uk-icon-close uk-text-danger" ng-click="removeCustomFilter($index)" style="margin-left: 8px !important;"></i>
+                        </div>
+                        <div style="width: 92% !important;" ng-if="!customFilters[modelAdFilter][$index].noShowInput">
+                            <input type="text" placeholder="{{customFilters[modelAdFilter][$index].placeHolder}}" class="md-input ng-isolate-scope md-input-processed" ng-model="customFilters[modelAdFilter][$index].value" style="margin-top: 5px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div style="text-align: center"><h4 class="one"><span style="font-size: 15px;" ><b data-translate="masterdata.common.addCustomCondition"></b></span></h4></div>-->
+
+        </div>
+    </div>
+    <div class="uk-modal-footer uk-text-right">
+        <button  class="md-btn  md-btn-primary md-btn-small" ng-click="applyCondition()" data-translate="global.common.applyCondition"></button>
+        <button  class="md-btn  md-btn-primary md-btn-small" ng-click="addMoreCondition()" data-translate="global.common.applyMoreCondition"></button>
+    </div>
+</div>
+</div>
+<button  data-uk-modal="{target:'#filter_modal'}"  id="openFilterModal"   ng-show="false"></button>
+
+<!--GROUP MODAL-->
+<div class="uk-modal" id="group_modal">
+    <div class="uk-modal-dialog uk-modal-dialog-small" style="width: 20% !important;">
+        <div class="uk-modal-header" style="margin: 0 -24px 0px">
+            <span><span class="uk-modal-title" data-translate="global.messages.groups"></span><a class="uk-modal-close" style="float: right;"><i class="material-icons">&#xE14C;</i></a></span>
+        </div>
+        <hr>
+        <div class="uk-overflow-container uk-margin-bottom custom-overflow-horizontal" style="height: 500px !important;">
+            <table  style="padding-left: 0px !important;">
+                <thead></thead>
+                <tbody>
+                <tr ng-repeat="f in fieldFilter[modelAdFilter]" ng-if="f.isGroup">
+                    <td><input  type="checkbox" icheck ng-model="f.groupValue" ng-change="selectGroupBy($index)"/></td>
+                    <td><div ng-bind-html = "f.title"></div></td>
+                    <!--<td><a  ng-click=removeFavorite($index)><i class="md-icon material-icons">&#xE872;</i></a></td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--<div class="uk-modal-footer uk-text-right">-->
+            <!--<button  class="uk-modal-close md-btn  md-btn-primary md-btn-small" ng-click="applyCondition()" data-translate="global.common.applyCondition"></button>-->
+            <!--<button  class="uk-modal-close md-btn  md-btn-primary md-btn-small" ng-click="addMoreCondition()" data-translate="global.common.applyMoreCondition"></button>-->
+        <!--</div>-->
+    </div>
+</div>
+<button  data-uk-modal="{target:'#group_modal'}"  id="openGroupModal"   ng-show="false"></button>
+
+<!--FAVORITE MODAL-->
+<div class="uk-modal" id="favorite_modal">
+    <div class="uk-modal-dialog uk-modal-dialog-small">
+        <div class="uk-modal-header" style="margin: 0 -24px 0px">
+            <span><span class="uk-modal-title" data-translate="global.messages.favorites"></span><a class="uk-modal-close" style="float: right;"><i class="material-icons">&#xE14C;</i></a></span>
+        </div>
+        <hr>
+        <div class="uk-overflow-container uk-margin-bottom custom-overflow-horizontal" style="height: 500px !important;">
+            <table  style="padding-left: 0px !important;">
+                <thead></thead>
+                <tbody>
+                <tr ng-repeat="f in favorites[modelAdFilter]">
+                    <td><input  type="checkbox" icheck ng-model="f.default" ng-change="selectFavorite($index)"/></td>
+                    <td><div style="min-width: 480px !important;" ng-bind-html = "f.displayName"></div></td>
+                    <td><a  ng-click=removeFavorite($index)><i class="md-icon material-icons">&#xE872;</i></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="md-card ">
+            <div class="md-card-toolbar" style="background-color: #f5f5f5">
+                <div style="display: inline-block">
+                    <h3 class="md-card-toolbar-heading-text" data-translate="global.common.saveFavorite" ></h3>
+                </div>
+                <div style="display: inline-block; padding-top: 8px" class="float-right">
+                    <i ng-show="isShowSaveFavorite[modelAdFilter]" class="md-icon uk-icon-angle-down"  ng-click="showSaveFavorite()"></i>
+                    <i ng-show="!isShowSaveFavorite[modelAdFilter]" class="md-icon uk-icon-angle-up" ng-click="showSaveFavorite()"></i>
+                </div>
+            </div>
+            <div class="md-card-content" ng-show="isShowSaveFavorite[modelAdFilter]">
+                <input type="text" placeholder="Favorite name" class="md-input ng-isolate-scope md-input-processed" ng-model="currentFavorite[modelAdFilter].name" style="margin-top: 5px!important;"><br>
+                <div class="uk-grid">
+                    <div class="uk-width-medium-1-2">
+                        <input  type="checkbox" icheck ng-model="currentFavorite[modelAdFilter].default" /> <span data-translate="global.common.isDefault"></span>
+                    </div>
+                    <div class="uk-width-medium-1-2">
+                        <input  type="checkbox" icheck ng-model="currentFavorite[modelAdFilter].public" /> <span data-translate="global.common.isPublic"></span>
+                    </div>
+                </div>
+                <br>
+                <div align="right">
+                    <button  class="md-btn md-btn-primary md-btn-small" ng-click="saveFavorite()" data-translate="global.common.applyCondition"></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<button  data-uk-modal="{target:'#favorite_modal'}"  id="openFavoriteModal"   ng-show="false"></button>
+

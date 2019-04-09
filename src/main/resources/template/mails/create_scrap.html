@@ -1,0 +1,36 @@
+<body style="margin: 0; padding: 0;">
+<div style="width: 100% !important; background-color: #f5f5f5 !important;" >
+    <div style="margin: 8px 8px 8px 8px !important;">
+        <div style="padding: 16px 0px 0px 16px !important;">
+            Dear
+            <span th:text="${receive}"></span>,<br/>
+            <span th:if="${transferNumber}" th:utext="#{notification.scrap.transfer(${user},${scrapNumber},${operationType},${transferNumber})}"></span>
+            <span th:unless="${transferNumber}" th:utext="#{notification.scrap.noneTransfer(${user},${scrapNumber})}"></span>
+        </div>
+    </div>
+    <div style="margin: 8px 8px 8px 8px !important;">
+        <table align="center" cellpadding="0" cellspacing="0"  style="width: 95%">
+            <tr style="background-color: white; border: 1px solid #bdbdbd !important; border-radius: 16px !important;">
+                <td>
+                    <div style="padding: 8px 8px 8px 8px">
+                        <p th:utext="#{notification.scrap.info}"></p>
+                        <ul>
+                            <li><b th:utext="#{location}"></b>:&nbsp;<span th:utext="${srcLocation}"></span></li>
+                            <li><b th:utext="#{scrapLocation}"></b>:&nbsp;<span th:utext="${destLocation}"></span></li>
+                        </ul>
+                        <a th:href="${url}"><em>View</em></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div >
+
+    <div style="padding: 0px 0px 16px 16px !important;">
+        <p><em>This message was sent by Inventory System</em></p>
+    </div>
+</div>
+</body>
+
+
+
+

@@ -1,0 +1,81 @@
+
+
+<body style="margin: 0; padding: 0;">
+<div style="width: 100% !important; background-color: #f5f5f5 !important;" >
+
+    <div style="margin: 8px 8px 8px 19px !important;">
+        <div style="padding-top: 9px;">
+            <table id="x_header-pattern" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse">
+                <tbody>
+                <tr>
+                    <td id="x_header-avatar-image-container" valign="top" style="border-collapse:collapse; vertical-align:top; padding-right:8px;padding-top: 4px;">
+                        <img  height="33" width="33" th:src="${avatar}" />
+                    </td>
+                    <td id="x_header-text-container" valign="middle" style="padding:0px; border-collapse:collapse; vertical-align:middle; font-family:Arial,sans-serif; font-size:14px; line-height:20px">
+                        Dear
+                        <span th:text="${receive}" style="color: #3b73af;text-decoration: none;font-weight: bold;"></span>,<br/>
+                        <!--<span th:utext="#{notification.transfer.update(${user},${operationType},${transferNumber})}"></span>-->
+                        <span  th:utext="#{notification.transfer.backorder(${user},${relateTransfer},${operationType},${transferNumber})}"></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div style="margin: 8px 8px 8px 8px !important;">
+        <table align="center" cellpadding="0" cellspacing="0"  style="width: 98%">
+            <tr style="background-color: white; border: 1px solid #bdbdbd !important; border-radius: 16px !important;">
+                <td>
+                    <div style="padding: 8px 8px 8px 8px">
+                        <p th:utext="#{notification.transfer.info}"
+                           style="padding: 0;font-size: 13px;
+                            vertical-align: middle;
+                            color: #3b73af;
+                            text-decoration: none;"></p>
+                        <ul>
+                            <li><b th:utext="#{operationTypeId}"></b>:&nbsp;<span th:utext="${operationType}"></span></li>
+                            <li><b th:utext="#{partnerId}"></b>:&nbsp;<span th:utext="${partner}"></span></li>
+                            <li><b th:utext="#{srcLocationId}"></b>:&nbsp;<span th:utext="${srcLocation}"></span></li>
+                            <li><b th:utext="#{destLocationId}"></b>:&nbsp;<span th:utext="${destLocation}"></span></li>
+                            <li><b th:utext="#{assigneeId}"></b>:&nbsp;<span th:utext="${assignee}"></span></li>
+                            <li><b th:utext="#{created}"></b>:&nbsp;<span th:utext="${created}"></span></li>
+                            <li><b th:utext="#{sourceDocument}"></b>:&nbsp;<span th:utext="${sourceDocument}"></span></li>
+                            <li><b th:utext="#{priority}"></b>:&nbsp;<span th:utext="${priority}"></span></li>
+                        </ul>
+                        <div style="padding-bottom: 13px;">
+                            <a th:href="${url}"><em>View</em></a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div >
+
+    <div style="padding: 0px 0px 16px 18px !important;">
+        <p><em style="padding: 0px;
+            border-collapse: collapse;
+            vertical-align: top;
+            color: #999;">This message was sent by Inventory System</em></p>
+    </div>
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

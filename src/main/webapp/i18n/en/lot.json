@@ -1,0 +1,22 @@
+{
+  "lot": {
+    "button": {
+      "generate" : "Generate"
+    },
+    "table": {
+      "product": "Product",
+      "lotNumber":"Unit ID Number"
+    },
+    "detail" :{
+      "product": "Product",
+      "location": "Location",
+      "lot": "Unit ID",
+      "lotSerial": "Unit ID/Serial Number",
+      "package": "Package",
+      "qtyOnHand": "Quantity On Hand",
+      "qtyReserved": "Quantity Reserved",
+      "incomingDate": "Incoming Date",
+      "productVersion": "Project"
+    }
+  }
+}

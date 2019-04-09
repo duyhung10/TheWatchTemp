@@ -1,0 +1,126 @@
+ol.questions,
+ul.answers,
+ul.responses,
+ol.questions li,
+ul.answers li,
+ul.responses li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.startQuiz,
+.nextQuestion,
+.backToQuestion,
+.questions li.question,
+.questions li.question .responses,
+.questions li.question .responses .correct,
+.questions li.question .responses .incorrect,
+.quizResults {
+    display: none;
+}
+
+.startQuiz {
+    margin-top: 40px;
+}
+.tryAgain {
+    float: none;
+    margin: 20px 0;
+}
+
+/* clearfix */
+.quizArea,
+.quizResults {
+    zoom: 1;
+}
+.quizArea:before,
+.quizArea:after,
+.quizResults:before,
+.quizResults:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    font-size: 0;
+}
+.quizArea:after,
+.quizResults:after {
+    clear: both;
+}
+
+.questionCount {
+    font-size: 14px;
+    font-style: italic;
+    span {
+        font-weight: bold;
+    }
+}
+ol.questions {
+    margin-top: 20px;
+    .md-btn {
+        margin-left: 0 !important;
+    }
+}
+ul.responses li {
+    margin: 40px 0;
+    p span {
+        display: block;
+        font-weight: bold;
+        font-size: 22px;
+    }
+}
+.complete ul.answers li.correct,
+ul.responses li.correct p span {
+    color: @success_color;
+}
+ul.responses li.incorrect p span {
+    color: @danger_color;
+}
+ul.answers {
+    margin: 30px 0;
+    > li {
+        margin: 14px 0 0 20px;
+        label {
+            padding-left: 4px;
+        }
+    }
+}
+
+.quizResults h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: 700;
+    span {
+        font-weight: normal;
+        font-style: italic;
+    }
+}
+.quizResultsCopy {
+    clear: both;
+    margin-top: 20px;
+    h5 {
+        border-top: 1px solid @border_color;
+        font-size: 18px;
+        margin: 20px 0 10px;
+        padding-top: 20px;
+    }
+    p {
+        margin-top: 0;
+    }
+}
+
+.nextQuestion.checkAnswer {
+    display: block;
+}
+
+/* Accessibility */
+.quizName span:first-child {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}

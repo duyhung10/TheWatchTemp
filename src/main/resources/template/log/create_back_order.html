@@ -1,0 +1,9 @@
+<span th:utext="#{notification.transfer.backorder(${user},${relateTransfer},${operationType},${transferNumber})}">
+</span>
+<ul>
+    <li><b th:utext="#{operationTypeId}"></b>:&nbsp;<span th:utext="${operationType}"></span></li>
+    <li><b th:utext="#{state}"></b>:&nbsp;<span th:utext="${state}"></span></li>
+    <li><b th:utext="#{srcLocationId}"></b>:&nbsp;<span th:utext="${srcLocation}"></span></li>
+    <li><b th:utext="#{destLocationId}"></b>:&nbsp;<span th:utext="${destLocation}"></span></li>
+    <li><b th:utext="#{scheduledDate}"></b>:&nbsp;<span th:utext="${scheduledDate}"></span></li>
+</ul>

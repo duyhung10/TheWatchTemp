@@ -1,0 +1,14 @@
+{
+  "success": {
+    "msg": {
+      "delete": "Delete Success",
+      "active": "Activate Success",
+      "inactive": "Deactivate Success",
+      "create":"Create Success",
+      "update":"Update Success",
+      "validate":"Validate success",
+      "import":"Import success",
+      "restore":"Restore success"
+    }
+  }
+}

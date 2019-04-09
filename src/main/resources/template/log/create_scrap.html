@@ -1,0 +1,11 @@
+<p th:if="${transferNumber}">
+    <span th:utext="#{notification.scrap.transfer(${user},${scrapNumber},${operationType},${transferNumber})}"></span>
+</p>
+
+<p th:unless="${transferNumber}">
+    <span th:utext="#{notification.scrap.noneTransfer(${user},${scrapNumber})}"></span>
+</p>
+<ul>
+    <li><b th:utext="#{location}"></b>:&nbsp;<span th:utext="${srcLocation}"></span></li>
+    <li><b th:utext="#{scrapLocation}"></b>:&nbsp;<span th:utext="${destLocation}"></span></li>
+</ul>

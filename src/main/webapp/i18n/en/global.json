@@ -1,0 +1,56 @@
+{
+  "global": {
+    "login": "Login",
+    "messages":{
+      "validateFailed":"Validate Failed",
+      "duplicateDetail":"Duplicate Operation Details. ",
+      "success":"Success",
+      "failed":"Failed",
+      "filterList":"Filters",
+      "favorites":"Favorites",
+      "groups":"Groups",
+      "error":{
+        "authentication":"<strong>Failed to sign in!</strong> Please check your credentials and try again."
+      },
+      "information":"Information",
+      "isReserved":"Transfer has been reserved. Un-reserved to update"
+    },
+    "common":{
+      "active":"Active",
+      "archived":"Archived",
+      "restore":"Restore",
+      "archive":"Archive",
+      "confirmValidation":"Confirm Validation",
+      "apply":"Apply",
+      "cancel":"Cancel",
+      "import":"Import",
+      "chooseFile":"Choose file...",
+      "yes":"Yes",
+      "no":"No",
+      "export":"Export",
+      "template":"Template",
+      "bigFile":"Total files volume is bigger than 20MB",
+      "permission": "Permission",
+      "permissionMsg":" You do not have permission to perform this action. Please contract to admin",
+      "applyCondition":"Apply",
+      "applyMoreCondition":"Add a condition",
+      "equal":" is equal to ",
+      "greatThan":" is great than ",
+      "greatThanOrEqual":" is great than or equal",
+      "lessThan":" is less than ",
+      "lessThanOrEqual":" is less than or equal",
+      "contain":" contains ",
+      "beginWith":" begin with ",
+      "notEqual":" is not equal to ",
+      "endWith": " end with ",
+      "notContain": " doen't contain ",
+      "inList":" is in list ",
+      "notInList":" is not in list ",
+      "saveFavorite":"Save current search",
+      "isDefault":"Use as my default",
+      "isPublic":"Public",
+      "isNull":" is not set ",
+      "isNotNull":" is set "
+    }
+  }
+}

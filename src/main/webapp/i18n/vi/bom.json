@@ -1,0 +1,22 @@
+{
+  "bom": {
+    "field":{
+      "Product":"Product",
+      "ProductVersion":"Product version",
+      "Quantity":"Số lượng",
+      "Reference":"Reference",
+      "BomRdVersion":"R&D BOM Version",
+      "BomType":"Loại BOM",
+      "No":"No.",
+      "UoM":"UoM",
+      "ManName":"Nhà sản xuất",
+      "ManPN":"Man P/N",
+      "ManBomName":"Tên Man BOM",
+      "Routing":"Chu trình",
+      "RoutingOperation":"Công đoạn",
+      "MaterialType":"Loại linh kiện",
+      "OldPN":"Mã cũ",
+      "Note":"Ghi chú"
+    }
+  }
+}

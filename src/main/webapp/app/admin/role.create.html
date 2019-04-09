@@ -1,0 +1,130 @@
+<div id="page_content">
+    <form name="form_createrole" id="form_createrole"
+          class="uk-form-stacked ng-pristine ng-invalid ng-invalid-required" novalidate="">
+        <div id="page_heading" data-uk-sticky="{ top: 48, media: 960 }">
+            <div class="heading_actions action-padding-top">
+                <!--<a href="javascript:void(0)" data-uk-tooltip="{pos:'bottom'}" title="Print"><i class="md-icon material-icons">&#xE8AD;</i></a>
+                <div data-uk-dropdown="{mode:'click'}">
+                    <i class="md-icon material-icons">&#xE5D4;</i>
+                    <div class="uk-dropdown uk-dropdown-small">
+                        <ul class="uk-nav">
+                            <li><a class="disableMouse" href="javascript:void(0)">Import</a></li>
+                            <li><a class="disableMouse" href="javascript:void(0)">Export list</a></li>
+                        </ul>
+                    </div>
+                </div>-->
+            </div>
+            <span class="route-header">
+                <a ui-sref="roles">{{titlePage.home | translate}}</a>
+                <span> / </span><a ui-sref="roles">{{titlePage.setting | translate}}</a>
+                <span> / </span><a ui-sref="users">{{titlePage.user_permision | translate}}</a>
+                <span> / </span><a ui-sref="roles">{{pageTitle | translate}}</a>
+                <span> / {{button.new | translate}}</span>
+            </span>
+            <br/>
+            <div class="uk-margin-small-top">
+                <button ng-click="submit()" type="submit" class="md-btn md-btn-primary md-btn-small"><span
+                        class="uk-text-bold">{{button.save|translate}}</span></button>
+                <a ui-sref="roles" class="md-btn md-btn-small"><span
+                        class="uk-text-bold"> {{button.cancel|translate}}</span></a>
+            </div>
+        </div>
+        <div id="page_content_inner">
+            <jhi-alert></jhi-alert>
+            <div class="md-card">
+                <div class="md-card-content">
+                    <div class="uk-grid" data-uk-grid-margin="">
+                            <div class="uk-width-medium-1-1 uk-row-first">
+                                <div class="parsley-row">
+                                    <label class="label-bold" for="name">{{detail.Name|translate}}<span
+                                            class="req"> *</span></label>
+                                    <input data-parsley-required-message={{required_msg}}
+                                           data-parsley-whitespace="trim"
+                                           ng-model="role.name" type="text" name="name" id="name" required=""
+                                           class="md-input ng-isolate-scope md-input-processed" md-input="">
+                                    <span class="md-input-bar "></span>
+                                </div>
+                            </div>
+                            <div class="uk-width-medium-1-1 uk-row-first">
+                                <div class="parsley-row">
+                                    <label class="label-bold" for="description">{{detail.Description|translate}}<span
+                                            class="req"> *</span></label>
+                                    <input data-parsley-required-message={{required_msg}}
+                                           data-parsley-whitespace="trim"
+                                           ng-model="role.description" type="text" name="description"
+                                           id="description" required=""
+                                           class="md-input ng-isolate-scope md-input-processed" md-input="">
+                                    <span class="md-input-bar "></span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="uk-grid data-uk-grid-margin">
+                <div class="uk-width-medium-2-5">
+                    <div class="md-card">
+                        <div class="md-card-content">
+                            <h3 class="heading_a uk-margin-bottom">{{detail.AvailablePrivileges|translate}}</h3>
+                            <div class="uk-grid uk-margin-small-bottom">
+                                <div class="uk-width-medium-1-1" id="filter_switches">
+                                    <div class="uk-margin-bottom">
+                                        <div class="uk-input-group">
+                                            <input type="text" class="md-input" placeholder="{{detail.FilterTree|translate}}" id="filter_input" ng-model="tree.filterInput">
+                                            <span class="uk-input-group-addon"><button class="md-btn md-btn-small" href="#" id="tree_filter_reset" ng-click="resetFilters($event)" ng-disabled="tree.filterInput == ''">{{button.clear|translate}}</button></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-medium-1-1">
+                                    <div id="tFilter" class="fixedFancyTree"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-medium-1-5">
+                    <div class="md-card">
+                        <div class="md-card-content">
+                        <div class="uk-width-medium-2-3 uk-align-center uk-margin-medium-top">
+                            <div class="uk-grid">
+                                <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                    <a id="addSelect" class="md-btn md-btn-wave md-btn-primary md-btn-block" href="javascript:void(0)" ng-click="addPrivilege()">></a>
+                                </div>
+                                <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                    <a id="addAll" class="md-btn md-btn-wave md-btn-primary md-btn-block" href="javascript:void(0)" ng-click="addAllPrivilege()">>></a>
+                                </div>
+                                <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                    <a id="removeSelect" class="md-btn md-btn-wave md-btn-danger md-btn-block" href="javascript:void(0)" ng-click="removePrivilege()"><</a>
+                                </div>
+                                <div class="uk-width-medium-1-1 uk-margin-bottom">
+                                    <a id="removeAll" class="md-btn md-btn-wave md-btn-danger md-btn-block" href="javascript:void(0)" ng-click="removeAllPrivilege()"><<</a>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-medium-2-5">
+                    <div class="md-card">
+                        <div class="md-card-content">
+                            <h3 class="heading_a uk-margin-bottom">{{detail.SelectPrivileges|translate}}</h3>
+                            <div class="uk-grid uk-margin-small-bottom">
+                                <div class="uk-width-medium-1-1" id="filter_switches_selected">
+                                    <div class="uk-margin-bottom">
+                                        <div class="uk-input-group">
+                                            <input type="text" class="md-input" placeholder="{{detail.FilterTree|translate}}" id="filter_input_selected" ng-model="tree_selected.filterInput">
+                                            <span class="uk-input-group-addon"><button class="md-btn md-btn-small" href="#" id="tree_selected_filter_reset" ng-click="resetFilters_selected($event)" ng-disabled="tree_selected.filterInput == ''">{{button.clear|translate}}</button></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-medium-1-1">
+                                    <div id="tFilter_selected" class="fixedFancyTree"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

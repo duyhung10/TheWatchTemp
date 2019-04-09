@@ -1,0 +1,14 @@
+<ul >
+    <li th:each="change : ${changes}">
+        <span><b th:text="${change.propertyName}"></b></span>:
+        <span th:text="${change.oldValue}"></span>
+        <span > 🡺 </span>
+        <span th:text="${change.newValue}"></span>
+    </li>
+    <!--<li th:if="${#strings.contains(change.propertyName,'Date')}">-->
+        <!--<span><b th:text="${change.propertyName}"></b></span>:-->
+        <!--<span th:if="${change.oldValue}" th:text="${#dates.format(new java.util.Date(change.oldValue), 'dd/MM/yyyy HH:mm:ss')}"></span>-->
+        <!--<span th:if="${change.oldValue}"> 🡺 </span>-->
+        <!--<span th:if="${change.newValue}" th:text="${#dates.format(new java.util.Date(change.newValue), 'dd/MM/yyyy HH:mm:ss')}"></span>-->
+    <!--</li>-->
+</ul>

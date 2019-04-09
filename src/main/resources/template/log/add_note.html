@@ -1,0 +1,11 @@
+
+<p th:utext="${note}">
+</p>
+<p th:if="${attachments}">
+    <span th:utext="#{log.attachments}"></span>
+    <span th:each="a : ${attachments}">
+        <a  th:href="${a.url}" th:text="${a.name}" ></a>&nbsp;&nbsp;
+    </span>
+</p>
+
+

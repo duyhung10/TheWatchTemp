@@ -1,0 +1,15 @@
+<style>
+    .scrollable-menu {
+        height: auto;
+        max-height: 300px;
+        overflow: auto;
+    }
+    .menu-highlighted {
+        font-weight: bold;
+    }
+</style>
+<ul class="list-group user-search demo-scrollable-menu">
+    <li class="list-group-item ng-scope ng-isolate-scope" mentio-menu-item="item" ng-repeat="item in items track by $index">
+        <a class="text-primary" ng-bind-html="item.label | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></a>
+    </li>
+</ul>

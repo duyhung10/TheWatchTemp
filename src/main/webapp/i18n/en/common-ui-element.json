@@ -1,0 +1,81 @@
+{
+  "common-ui-element": {
+    "button":{
+      "Add":"Add",
+      "Remove":"Remove",
+      "Create":"Create",
+      "New":"New",
+      "Edit":"Edit",
+      "Back":"Back",
+      "Delete":"Delete",
+      "Save":"Save",
+      "SaveAs":"Save As",
+      "SaveAndClose":"Save And Close",
+      "Cancel":"Cancel",
+      "Columns":"Columns",
+      "Filter":"Filter",
+      "Close":"Close",
+      "Clear":"Clear",
+      "ClearAll":"Clear All",
+      "Report":"Report",
+      "Discard":"Discard",
+      "Import":"Import",
+      "Export":"Export",
+      "Print":"Print",
+      "Finish": "Finish",
+      "Reset": "Reset",
+      "Continue": "Continue",
+      "Warning": "Warning",
+      "Apply": "Apply",
+      "restore":"Restore"
+    },
+
+    "actionConfirm":{
+      "Delete":"Are you sure you want to delete?",
+      "restore":"This action will back material into 'Good' state. Are you sure to restore?"
+    },
+
+    "titlePage":{
+      "Home":"Home",
+      "Admin":"Admin",
+      "Setting":"Setting",
+      "UserAndPermision":"User & Permision",
+      "MasterData":"Master Data",
+      "Inventory":"Inventory"
+    },
+    "ManPage":{
+      "Manufacturer":"Manufacturers",
+      "ManufacturerCode":"Manufacturer Code",
+      "ManufacturerName":"Manufacturer Name",
+      "ManufacturerAlias":"Manufacturer Alias",
+      "Quanlity":"Quanlity",
+      "DeleteMan":"Delete Manufacturer(s)",
+      "ExportExcel":"Export to Excel",
+      "ImportMan":"Import Manufacturer(s)",
+      "DuplicateMan":"Duplicate Manufacturer(s)",
+      "Address":"Address",
+      "Description":"Description",
+      "Phone":"Phone",
+      "Fax":"Fax",
+      "Email":"Email"
+    },
+    "SuppPage":{
+      "Supplier":"Suppliers",
+      "ContactName":"Contact Name",
+      "ContactPhone":"Contact Phone",
+      "SupplierName":"Supplier Name",
+      "SupplierAlias":"Supplier Alias",
+      "ContactEmail":"Contact Email",
+      "ContactPosition":"Contact Position",
+      "ContactDescription":"Contact Description",
+      "DeleteSup":"Delete Supplier(s)",
+      "ImportSup":"Import Supplier(s)",
+      "DuplicateSup":"Duplicate Supplier(s)",
+      "CompareSup":"Compare Supplier(s)",
+      "CriteriaSup":"Create Supplier Criteria"
+    },
+    "messages": {
+      "noResult":"There are no items to display"
+    }
+  }
+}

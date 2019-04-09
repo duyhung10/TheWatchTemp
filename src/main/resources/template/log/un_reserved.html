@@ -1,0 +1,10 @@
+
+<ul>
+    <li th:each="change : ${changes}">
+        <span><b th:text="${change.propertyName}"></b></span>:
+        <span th:if="${change.oldValue}" th:text="${change.oldValue}" style="background-color: #ffe7e7;text-decoration: line-through;"></span>
+        <span th:if="${change.oldValue}"> 🡺 </span>
+        <span th:if="${change.newValue}" th:text="${change.newValue}" style="background-color: #ddfade;"></span>
+    </li>
+</ul>
+

@@ -1,0 +1,118 @@
+{
+  "error": {
+    "userAndPermission":{
+      "emailexists":"Email này đã được sử dụng. Vui lòng chọn email khác.",
+      "roleHasNoPrivilege":"Vui lòng chọn ít nhất một quyền để tạo vai trò.",
+      "userHasRole":"Người dùng này đã được gán vai trò. Không thể xóa.",
+      "roleHasPrivilege":"Vai trò này đã được gán quyền. Không thể xóa.",
+      "roleExist": "Tên vai trò này đã được sử dụng. Vui lòng chọn tên khác",
+      "imageIsTooLarge": "Kích thước ảnh quá lớn!"
+    },
+    "permission":{
+      "canNotDeleteSystemObject":"Không thể xóa bản ghi của hệ thống.",
+      "canNotPerform":"Bạn không có quyền thực hiện tác vụ này."
+    },
+    "common":{
+      "deleteError": "Không thể xóa các bản ghi có id: ",
+      "maxLengthRule":"Độ dài tối đa cho trường này là 255.",
+      "referenceError":"Không thể xóa đối tượng này. Nó đã được tham chiếu bởi một đối tượng khác."
+    },
+    "warehouse":{
+      "nameExist":"Tên kho đã tồn tại.",
+      "codeExist":"Mã kho đã tồn tại.",
+      "referenced": "Không thể xóa kho này. Nó đã được tham chiếu bới route."
+    },
+    "uom":{
+      "nameExist":"Tên UOM đã tồn tại."
+    },
+    "operation-type":{
+      "nameExist":"Tên loại hoạt động đã tồn tại.",
+      "codeExist":"Mã loại hoạt động đã tồn tại.",
+      "transfer":"Loại hoạt động đã tồn tại trong một giao dịch.",
+      "valuation":"Loại hoạt động đã tồn tại trong một mẫu báo cáo nhập xuất tồn.",
+      "valuationOrTransfer":"Loại hoạt động đã tồn tại trong một giao dịch hoặc một mẫu báo cáo nhập xuất tồn."
+    },
+    "sequence": {
+      "nameExist": "Tên sequence đã tồn tại.",
+      "codeExist": "Mã sequence động đã tồn tại.",
+      "referenced": "Không thể xóa sequence này. Nó đã được tham chiếu bởi một loại hoạt động.",
+      "hasOperationTypeActive": "Can not archive this sequence. It has been referenced by an active operation type."
+    },
+    "uomCategory":{
+      "nameExist":"Tên danh mục UOM đã tồn tại."
+    },
+    "locaion": {
+      "delete": "Không thể xóa Location này!",
+      "canNotDeleteUsedLocation": "Không thể xóa Location đang được sử dụng!",
+      "canNotArchiveUsedLocation": "Không thể archive Location đang được sử dụng!"
+    },
+    "transfer": {
+      "dateCondition":"Ngày Kết Thúc phải lớn hơn hoặc bằng Ngày Bắt Đầu",
+      "canNotCreateDuplicateItem":"Bạn đang có 2 phần tử giống nhau. Vui lòng kiểm tra lại trước khi tạo.",
+      "canNotDeleteDoneTransfer":"Không thể xóa giao dịch mà có chứa một stock move đã được đặt về trạng thái 'Done'.",
+      "canNotDeleteTransferHavingOrigin":"Không thể xóa giao dịch này do nó liên kết tới một giao dịch khác.",
+      "somethingWrong":"Có lỗi xảy ra. Kiểm tra log để biết thêm chi tiết hoặc liên hệ tới quản trị viên để được hỗ trợ.",
+      "errorDeleteNotExist":"Bạn không thể xóa: các giao dịch mà do chúng không tồn tại",
+      "errorDeleteDone":"Bạn không thể xóa: các giao dịch mà chứa một stock move đã được đặt về trạng thái 'Done'",
+      "errorDeleteHavingOrigin":"Bạn không thể xóa: các giao dịch mà chúng được liên kết tới các giao dịch khác",
+      "constant_select_transfer":"các giao dịch mà",
+      "transfer_is_delete":"Transfer đã bị xóa!",
+      "done_not_equal_reserved": "Số lượng Done phải bằng số lượng Reserved hoặc bằng 0",
+      "duplicateUID":"Bị trùng UID/Serial Number hoặc Package trong tab Detailed Operations",
+      "invalidState":"Transfer is done or waiting for others",
+      "transferCantChange":"Giao dịch đã hoàn thành hoặc bị hủy",
+      "transferInProcessing":"Giao dịch này đang được sử dụng bởi người khác",
+      "validateFailed": "Đã có lỗi xảy ra trong khi xác nhận. Liên hệ với admin để xử lý."
+    },
+    "adjustment": {
+      "adjustment_is_delete":"Inventory adjustment đã bị xóa!"
+    },
+    "inventory": {
+      "inventoryNotFound": "Không thể tìm thấy bản ghi này",
+      "duplicateProduct": "Have an Inventory adjustment inprogress!",
+      "startInventoryOfAllFailed":"Không thể bắt đầu phiếu điều chỉnh Tất Cả Sản Phẩm vì tồn tại một phiếu điều chỉnh khác ở vị chí này chưa hoàn thành.",
+      "startFailedByInventoryOfAll":"Không thể bắt đầu phiếu điều chỉnh này vì đang có phiếu điều chỉnh Tất Cả Sản Phẩm ở vị trí này chưa hoàn thành.",
+      "notFinish":"Exist another inventory adjustment for your products in this location.",
+      "importFileInvalid":"File không đúng format",
+      "deleteFinishAdjustment":"Không thể xóa điều chỉnh kho đã hoàn thành.",
+      "deleteValidateAdjustment":"Không thể xóa điều chỉnh kho đã được xác nhận.",
+      "deleteInprogressAdjustment":"Không thể xóa điều chỉnh kho đang được thực thi.",
+      "importTemplateError":"Template không hợp lệ.",
+      "importFileTooBig":"Không thể xem trước tệp với dung lượng lớn. Hãy nhập file này ở màn hình Chi tiết giao dịch.",
+      "usingOldTemplate":"Hãy tải template mới, sau đó import lại",
+      "reservedPartAdjustment": "Can not start inventory. Have some item(s) be reserved. Please validated transfer reserved before start inventory",
+      "isReserved": "Linh kiện này đã được reserved trong giao dịch khác.",
+      "notDraft": "Phiếu kiểm kê này không còn ở trạng thái DRAFT. Hãy tải lại trang và kiểm tra lịch sử.",
+      "inDraft": "Phiếu kiểm kê này đã ở trạng thái DRAFT. Hãy tải lại trang và kiểm tra lịch sử.",
+      "notInProgress": "Phiếu kiểm kê này không còn ở trạng thái IN PROGRESS. Hãy tải lại trang và kiểm tra lịch sử.",
+      "notValidate": "Phiếu kiểm kê này không còn ở trạng thái VALIDATE. Hãy tải lại trang và kiểm tra lịch sử."
+    },
+    "stockQuant": {
+      "beforeCreate" : {
+        "duplicateLotLocation" : "UnitID không thể tồn tại đồng thời ở các vị trí khác nhau. Vui lòng kiểm tra lại dữ liệu.",
+        "duplicatePackageLocation":"Packages không thể tồn tại đồng thời ở các vị trí khác nhau. Vui lòng kiểm tra lại dữ liệu."
+      }
+    },
+    "package" :{
+      "existedInStock":"Package này có tồn kho lớn hơn 0.",
+      "existedInAdjustment":"Package này đang được kiểm kê.",
+      "packageNotFound":"Package không tồn tại trong hệ thống."
+    },
+    "lot" : {
+      "existedInStock":"Unit Id/Serial này có tồn kho lớn hơn 0.",
+      "existedInAdjustment":"Unit Id/Serial này đang được kiểm kê.",
+      "lotNotFound":"Unit Id/Serial không tồn tại trong hệ thống."
+    },
+    "location": {
+      "barcodeExist": "Barcode này đã tồn tại trong hệ thống."
+    },
+    "synchronize-report": {
+      "batchDeleteError": "Không thể xóa vì một (một vài) báo cáo thuộc về người dùng khác. Vui lòng kiểm tra lại."
+    },
+    "scrap": {
+      "onlyScrapped":"Bạn chỉ được chọn vật tư có trạng thái scrapped để khôi phục",
+      "scrapReserved":"Vật tư đã được giữ trong giao dịch. Làm ơn bỏ giữ trước khi khôi phục",
+      "scrapAdjustment":"Vật tư đã được giữ trong kiểm kê. Làm ơn bỏ giữ trước khi khôi phục"
+    }
+  }
+}

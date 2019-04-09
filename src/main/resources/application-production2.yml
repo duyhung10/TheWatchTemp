@@ -1,0 +1,101 @@
+server:
+    port: 8080
+spring:
+  jpa:
+      show-sql: false
+      open-in-view: false
+      hibernate:
+        ddl-auto: none
+        naming:
+          physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+          implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+      properties:
+          hibernate.id.new_generator_mappings: true
+          hibernate.cache.use_second_level_cache: false
+          hibernate.cache.use_query_cache: false
+          hibernate.generate_statistics: false
+          hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.NoDefaultJCacheRegionFactory
+  mail:
+      host: 172.24.104.10
+      port: 25
+      username: ssdclab
+      password: Ssdc123!
+      protocol: smtp
+#      tls: true
+#      properties.mail.smtp:
+#        auth: true
+#        starttls.enable: true
+#        ssl.trust: smtp.gmail.com
+  datasource :
+      url: jdbc:mysql://10.1.30.141:3306/ssdc_inventory?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      username : root
+      password : ssdc_inventory
+  messages:
+      basename: i18n/messages
+      cache-seconds: -1
+      encoding: UTF-8
+
+security:
+  basic:
+    enabled: false
+#management.security.enabled=false
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: http://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+    http:
+        version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
+    cache: # Cache configuration
+        ehcache: # Ehcache configuration
+            time-to-live-seconds: 5 # By default objects stay 1 hour in the cache
+            max-entries: 1000 # Number of objects in each cache entry
+    # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
+    cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+        allowed-headers: "*"
+        exposed-headers: "Authorization"
+        allow-credentials: true
+        max-age: 1800
+    security:
+        authentication:
+            jwt:
+                secret: my-secret-token-to-change-in-production
+                # Token is valid 24 hours
+                token-validity-in-seconds: 86400
+                token-validity-in-seconds-for-remember-me: 2592000
+    mail: # specific JHipster mail property, for standard properties see MailProperties
+        from: ssdclab@vnpt-technology.vn
+        base-url: http://127.0.0.1:8080
+application:
+    activation:
+      expirePeriod: 86400 #milliseconds
+      enableMail: false #true/false
+    ldap:
+      enabled: true #true/false
+      url: ldap://172.24.104.10:389
+      base: dc=vnpt-technology,dc=vn
+      userDN: ssdclab@vnpt-technology.vn
+      password: Ssdc123!
+    oldSystem:
+      host: http://10.1.30.138:8084/
+      apiGetPart: api/migrate-data/getPart?id=
+      apiGetManufacturer: api/migrate-data/getManufacturer?id=
+      apiGetSupplier: api/migrate-data/getSupplier?id=
+      apiGetPartMan: api/migrate-data/getPartMans?id=
+      apiGetPartManPn: api/migrate-data/getPartManPns?partId=
+      apiGetProductLine: api/migrate-data/getProductLine?id=
+      apiGetProductLines: api/migrate-data/getProductLines?id=
+      apiGetProduct: api/migrate-data/getProduct?id=
+      apiGetPurchaseOrder: api/migrate-data/getShipments?
+      apiGetProductOrder: api/migrate-data/getProductionOrders?
+      apiGetPartCategories: api/migrate-data/getPartCategories?id=
+      apiGetSynchronizedBom: api/migrate-data/getBom?
+
+baseUrl: http://10.1.30.142:8080
+spring.http.multipart.max-file-size: 20MB
+spring.http.multipart.max-request-size: 20MB

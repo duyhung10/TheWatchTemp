@@ -1,0 +1,22 @@
+{
+  "lot": {
+    "button": {
+      "generate" : "Sinh mã"
+    },
+    "table": {
+      "product": "Sản phẩm",
+      "lotNumber":"Số Lô"
+    },
+    "detail" :{
+      "product": "Sản phẩm",
+      "location": "Vị trí",
+      "lot": "Số Lô",
+      "lotSerial": "Số Lô",
+      "package": "Thùng",
+      "qtyOnHand": "Tồn kho vật lý",
+      "qtyReserved": "Số lượng đặt trước",
+      "incomingDate": "Ngày tạo",
+      "productVersion": "Dự án"
+    }
+  }
+}

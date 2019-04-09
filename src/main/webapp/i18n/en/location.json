@@ -1,0 +1,45 @@
+{
+  "location": {
+
+    "titlePage":{
+      "Home":"Home",
+      "Configuration":"Configuration",
+      "WarehouseMan":"Warehouse Management",
+      "Warehouse":"Warehouse",
+      "Location":"Location"
+    },
+    "column": {
+      "Type":"Location Type",
+      "Name":"Location Name",
+      "ParentLocation":"Parent Location",
+      "AddInfo":"Additional Information",
+      "LocationType":"Location Type",
+      "description":"Description",
+      "IsScrap":"Is a Scrap Location?",
+      "IsReturn":"Is a Return Location?",
+      "Logistics":"Logistics",
+      "RemovalStrategy":"Removal Strategy",
+      "AwayStrategy":"Put Away Strategy",
+      "ShortName":"Short Name",
+      "Localization":"Localization",
+      "Corridor":"Corridor (X)",
+      "Shelves":"Shelves (Y)",
+      "Height":"Height (Z)",
+      "Barcode":"Barcode"
+    },
+    "headerPage":{
+      "Import":"Import",
+      "Export":"Export",
+      "Active":"Active",
+      "Inactive":"Archive",
+      "CurrentStock":"Current Stock",
+      "Product":"Product"
+    },
+    "messages": {
+      "errorCreate":"Unable to create new Location. Please check your data and try again.",
+      "errorUpdate":"Unable to update Location. Please check your data and try again.",
+      "errorDelete":"Unable to remove.",
+      "wrongPatternRule":"This field should not have special characters."
+    }
+  }
+}

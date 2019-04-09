@@ -1,0 +1,168 @@
+<body style="margin: 0; padding: 0;">
+<div style="width: 100% !important; background-color: #f5f5f5 !important;" >
+
+    <div style="margin: 8px 8px 8px 19px !important;">
+        <div style="padding-top: 9px;">
+            <table id="x_header-pattern" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse">
+                <tbody>
+                <tr>
+                    <td id="x_header-avatar-image-container" valign="top" style="border-collapse:collapse; vertical-align:top; padding-right:8px;padding-top: 4px;">
+                        <img  height="33" width="33" th:src="${avatar}" />
+                    </td>
+                    <td id="x_header-text-container" valign="middle" style="padding:0px; border-collapse:collapse; vertical-align:middle; font-family:Arial,sans-serif; font-size:14px; line-height:20px">
+                        Dear
+                        <span th:text="${receive}" style="color: #3b73af;text-decoration: none;font-weight: bold;"></span>,<br/>
+                        <!--<span th:utext="#{notification.transfer.update(${user},${operationType},${transferNumber})}"></span>-->
+                        <span>
+                            <a style="color: #3b73af;" th:text="${user}"></a> check availability
+                            <a style="color: #3b73af;" th:text="${operationType}"></a>
+                            <a style="color: #3b73af;" th:text="${transferNumber}"></a>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div style="margin: 8px 8px 8px 8px !important;">
+        <table align="center" cellpadding="0" cellspacing="0"  style="width: 98%">
+            <tr style="background-color: white; border: 1px solid #bdbdbd !important; border-radius: 16px !important;">
+                <td>
+                    <div style="padding: 8px 8px 8px 8px">
+                        <p th:if="${changes}" th:utext="#{notification.transfer.change}"
+                           style="padding: 0;font-size: 13px;
+                            vertical-align: middle;
+                            color: #3b73af;
+                            text-decoration: none;"></p>
+                        <ul >
+                            <li th:each="change : ${changes}">
+                                <span style="color: #707070;"><b th:text="${change.propertyName}"></b></span>:
+                                <span  th:text="${change.oldValue}" style="background-color: #ffe7e7;text-decoration: line-through;"></span>
+                                <!--<span th:if="${change.oldValue}"> 🡺 </span>-->
+                                <span  th:text="${change.newValue}" style="background-color: #ddfade;"></span>
+                            </li>
+                            <!--<li th:if="${#strings.contains(change.propertyName,'Date')}">-->
+                            <!--<span style="color: #707070;"><b th:text="${change.propertyName}"></b></span>:-->
+                            <!--<span th:if="${change.oldValue}" th:text="${#dates.format(new java.util.Date(change.oldValue), 'dd/MM/yyyy HH:mm:ss')}" style="background-color: #ffe7e7;text-decoration: line-through;"></span>-->
+                            <!--&lt;!&ndash;<span th:if="${change.oldValue}"> 🡺 </span>&ndash;&gt;-->
+                            <!--<span th:if="${change.newValue}" th:text="${#dates.format(new java.util.Date(change.newValue), 'dd/MM/yyyy HH:mm:ss')}" style="background-color: #ddfade;"></span>-->
+                            <!--</li>-->
+                        </ul>
+                        <div th:if="${relateLogs}">
+                            <p th:utext="#{notification.transfer.operationsChanges}"
+                               style="padding: 0;font-size: 13px;
+                            vertical-align: middle;
+                            color: #3b73af;
+                            text-decoration: none;"></p>
+                            <table border="1px" width="98%" style="text-align: center; border-collapse: collapse;">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th th:if="${isManOrderTransfer == 'true'}">Level</th>
+                                    <th>VNPT P/N</th>
+                                    <th>VNPT ManPN</th>
+                                    <th>Man P/N</th>
+                                    <th th:if="${isManOrderTransfer == 'true'}">Reserved</th>
+                                    <th th:if="${isManOrderTransfer == 'false'}">Initial Demand</th>
+                                    <th>Done</th>
+                                    <th th:if="${isManOrderTransfer == 'false'}">Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="child : ${relateLogs}">
+                                    <td th:if="${child.actionType == 'update_transfer_item'}" th:text="${child.parameters.get('id')}"></td>
+                                    <td th:if="${child.actionType == 'create_transfer_item'}"><span style="background-color: #ddfade;" th:text="${child.parameters.get('id')}"></span></td>
+                                    <td th:if="${child.actionType == 'delete_transfer_item'}"><span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('id')}"></span></td>
+
+                                    <td th:if="${isManOrderTransfer == 'true'}">
+                                        <span th:if="${child.actionType == 'update_transfer_item' and child.parameters.containsKey('levelOld')}">
+                                            <span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('levelOld')}"></span>&nbsp;
+                                            <span style="background-color: #ddfade;" th:text="${child.parameters.get('level')}"></span></span>
+                                        <span th:if="${child.actionType == 'update_transfer_item' and !child.parameters.containsKey('levelOld')}" th:text="${child.parameters.get('level')}"></span>
+                                        <span th:if="${child.actionType == 'create_transfer_item'}"><span style="background-color: #ddfade;" th:text="${child.parameters.get('level')}"></span></span>
+                                        <span th:if="${child.actionType == 'delete_transfer_item'}"><span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('level')}"></span></span>
+                                    </td>
+
+                                    <td th:if="${child.actionType == 'update_transfer_item' and child.parameters.containsKey('productNameOld')}">
+                                        <span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('productNameOld')}"></span>&nbsp;
+                                        <span style="background-color: #ddfade;" th:text="${child.parameters.get('productName')}"></span></td>
+                                    <td th:if="${child.actionType == 'update_transfer_item' and !child.parameters.containsKey('productNameOld')}" th:text="${child.parameters.get('productName')}"></td>
+                                    <td th:if="${child.actionType == 'create_transfer_item'}"><span style="background-color: #ddfade;" th:text="${child.parameters.get('productName')}"></span></td>
+                                    <td th:if="${child.actionType == 'delete_transfer_item'}"><span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('productName')}"></span></td>
+
+                                    <td th:if="${child.actionType == 'update_transfer_item' and child.parameters.containsKey('internalReferenceOld')}">
+                                        <span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('internalReferenceOld')}"></span>&nbsp;
+                                        <span style="background-color: #ddfade;" th:text="${child.parameters.get('internalReference')}"></span></td>
+                                    <td th:if="${child.actionType == 'update_transfer_item' and !child.parameters.containsKey('internalReferenceOld')}" th:text="${child.parameters.get('internalReference')}"></td>
+                                    <td th:if="${child.actionType == 'create_transfer_item'}"><span style="background-color: #ddfade;" th:text="${child.parameters.get('internalReference')}"></span></td>
+                                    <td th:if="${child.actionType == 'delete_transfer_item'}"><span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('internalReference')}"></span></td>
+
+                                    <td th:if="${child.actionType == 'update_transfer_item' and child.parameters.containsKey('manPnOld')}">
+                                        <span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('manPnOld')}"></span>&nbsp;
+                                        <span style="background-color: #ddfade;" th:text="${child.parameters.get('manPn')}"></span></td>
+                                    <td th:if="${child.actionType == 'update_transfer_item' and !child.parameters.containsKey('manPnOld')}" th:text="${child.parameters.get('manPn')}"></td>
+                                    <td th:if="${child.actionType == 'create_transfer_item'}"><span style="background-color: #ddfade;" th:text="${child.parameters.get('manPn')}"></span></td>
+                                    <td th:if="${child.actionType == 'delete_transfer_item'}"><span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('manPn')}"></span></td>
+
+                                    <td th:if="${isManOrderTransfer == 'false'}">
+                                        <span th:if="${child.actionType == 'update_transfer_item' and child.parameters.containsKey('initialQuantityOld')}">
+                                            <span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('initialQuantityOld')}"></span>&nbsp;
+                                            <span style="background-color: #ddfade;" th:text="${child.parameters.get('initialQuantity')}"></span></span>
+                                        <span th:if="${child.actionType == 'update_transfer_item' and !child.parameters.containsKey('initialQuantityOld')}" th:text="${child.parameters.get('initialQuantity')}"></span>
+                                        <span th:if="${child.actionType == 'create_transfer_item'}"><span style="background-color: #ddfade;" th:text="${child.parameters.get('initialQuantity')}"></span></span>
+                                        <span th:if="${child.actionType == 'delete_transfer_item'}"><span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('initialQuantity')}"></span></span>
+                                    </td>
+
+
+                                    <td th:if="${isManOrderTransfer == 'true'}">
+                                        <span th:if="${child.actionType == 'update_transfer_item' and child.parameters.containsKey('reservedOld')}">
+                                            <span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('reservedOld')}"></span>&nbsp;
+                                            <span style="background-color: #ddfade;" th:text="${child.parameters.get('reserved')}"></span></span>
+                                        <span th:if="${child.actionType == 'update_transfer_item' and !child.parameters.containsKey('reservedOld')}" th:text="${child.parameters.get('reserved')}"></span>
+                                        <span th:if="${child.actionType == 'create_transfer_item'}"><span style="background-color: #ddfade;" th:text="${child.parameters.get('reserved')}"></span></span>
+                                        <span th:if="${child.actionType == 'delete_transfer_item'}"><span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('reserved')}"></span></span>
+                                    </td>
+
+
+                                    <td th:if="${child.actionType == 'update_transfer_item' and child.parameters.containsKey('doneQuantityOld')}">
+                                        <span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('doneQuantityOld')}"></span>&nbsp;
+                                        <span style="background-color: #ddfade;" th:text="${child.parameters.get('doneQuantity')}"></span></td>
+                                    <td th:if="${child.actionType == 'update_transfer_item' and !child.parameters.containsKey('doneQuantityOld')}" th:text="${child.parameters.get('doneQuantity')}"></td>
+                                    <td th:if="${child.actionType == 'create_transfer_item'}"><span style="background-color: #ddfade;" th:text="${child.parameters.get('doneQuantity')}"></span></td>
+                                    <td th:if="${child.actionType == 'delete_transfer_item'}"><span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('doneQuantity')}"></span></td>
+
+                                    <td th:if="${isManOrderTransfer == 'false'}">
+                                        <span th:if="${child.actionType == 'update_transfer_item' and child.parameters.containsKey('priceOld')}">
+                                            <span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('priceOld')}"></span>&nbsp;
+                                            <span style="background-color: #ddfade;" th:text="${child.parameters.get('price')}"></span></span>
+                                        <span th:if="${child.actionType == 'update_transfer_item' and !child.parameters.containsKey('priceOld')}" th:text="${child.parameters.get('price')}"></span>
+                                        <span th:if="${child.actionType == 'create_transfer_item'}"><span style="background-color: #ddfade;" th:text="${child.parameters.get('price')}"></span></span>
+                                        <span th:if="${child.actionType == 'delete_transfer_item'}"><span style="background-color: #ffe7e7;text-decoration: line-through;" th:text="${child.parameters.get('price')}"></span></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div style="padding-bottom: 13px;">
+                            <a th:href="${url}"><em>View</em></a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div >
+
+    <div style="padding: 0px 0px 16px 18px !important;">
+        <p><em style="padding: 0px;
+            border-collapse: collapse;
+            vertical-align: top;
+            color: #999;">This message was sent by Inventory System</em></p>
+    </div>
+</div>
+</body>
+
+
+
+

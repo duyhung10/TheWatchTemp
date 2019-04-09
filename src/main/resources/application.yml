@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev
+
+logging:
+  level:
+    org.springframework.web: ERROR
+    vn.ssdc: DEBUG
+    org.hibernate.cache.jcache.access.AbstractReadWriteRegionAccessStrategy: OFF
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} : %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} : %msg%n"
+  file: ssdc_erp.log
